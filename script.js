@@ -18,7 +18,7 @@ fetch('products.csv')
       card.innerHTML = `
         <img src="images/${imageName}" alt="${name}">
         <h3>${name}</h3>
-        <p>$${price}</p>
+        <p>£${price}</p>
       `;
       grid.appendChild(card);
     });
