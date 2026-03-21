@@ -63,12 +63,36 @@ nav.sc{background:rgba(8,6,8,.97);backdrop-filter:blur(20px);border-bottom:1px s
 .h-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at center,rgba(200,134,10,.055) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 68% 68% at 72% 40%,black,transparent)}
 .h-shard{position:absolute;right:-6%;top:-20%;width:48%;height:150%;z-index:1;background:var(--k2);transform:skewX(-6deg);border-left:1px solid var(--bg)}
 .h-shard::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 26px,rgba(200,134,10,.03) 26px,rgba(200,134,10,.03) 27px)}
-.h-mosaic{position:absolute;right:0;top:0;width:46%;height:100%;z-index:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;overflow:hidden}
-.h-mosaic::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(to right,var(--k) 0%,rgba(8,6,8,.65) 28%,rgba(8,6,8,.1) 100%)}
-.mc{overflow:hidden}
-.mc img{width:100%;height:100%;object-fit:cover;filter:brightness(.38) saturate(.6);animation:sz 14s ease-in-out infinite alternate}
-.mc:nth-child(2) img{animation-delay:2s}.mc:nth-child(3) img{animation-delay:1s}.mc:nth-child(4) img{animation-delay:3s}
-@keyframes sz{from{transform:scale(1)}to{transform:scale(1.1)}}
+/* Hero T-shirt panel */
+.h-tshirt-panel{
+  position:absolute;right:0;top:0;width:48%;height:100%;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.h-tshirt-panel::before{
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to right,var(--k) 0%,rgba(8,6,8,.45) 22%,rgba(8,6,8,.05) 55%,rgba(8,6,8,.3) 100%);
+}
+.h-tshirt-wrap{
+  position:relative;z-index:2;
+  width:85%;max-width:480px;
+  animation:dRev 1.2s ease .4s both;
+}
+.h-tshirt-img{
+  width:100%;height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 48px rgba(200,134,10,.35)) drop-shadow(0 2px 16px rgba(0,0,0,.8));
+  animation:dFloat 7s ease-in-out infinite;
+  border-radius:4px;
+}
+.h-tshirt-badge{
+  position:absolute;top:18px;right:12px;
+  font-family:'Cinzel',serif;font-size:.55rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--k);background:linear-gradient(135deg,var(--g3),var(--g2) 50%,var(--g1));
+  padding:6px 14px;
+  clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+}
 .h-glow{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:480px;height:480px;border-radius:50%;z-index:2;background:radial-gradient(circle,rgba(200,134,10,.14) 0%,rgba(139,74,0,.05) 42%,transparent 70%);animation:pulse 4.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.7;transform:translateY(-50%) scale(1)}50%{opacity:1;transform:translateY(-50%) scale(1.06)}}
 .h-content{position:relative;z-index:4;max-width:600px}
@@ -317,11 +341,12 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
 
 /* ── RESPONSIVE ──────────────────────────────── */
 @media(max-width:1100px){
+  .h-tshirt-wrap{width:92%}
   .cgrid{grid-template-columns:1fr 1fr}.cc:first-child{min-height:240px;aspect-ratio:unset}
   .fttop{grid-template-columns:1fr 1fr}
 }
 @media(max-width:900px){
-  .h-mosaic{opacity:.3}
+  .h-tshirt-panel{width:42%;opacity:.5}
   .pgrid{grid-template-columns:repeat(2,1fr)}
   .abgrid{grid-template-columns:1fr;gap:44px}.abvis{display:none}
   .ctgrid{grid-template-columns:1fr;gap:44px}
@@ -331,7 +356,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
 @media(max-width:768px){
   nav{padding:0 22px}.nm,.ncta{display:none}.hbg{display:flex}
   .hero{padding:88px 22px 60px}.sw{padding:68px 22px}
-  .h-mosaic{display:none}
+  .h-tshirt-panel{display:none}
   .cgrid{grid-template-columns:1fr 1fr}
   .pgrid{grid-template-columns:repeat(2,1fr);gap:10px}
   .pillars{grid-template-columns:1fr}.f2{grid-template-columns:1fr}
@@ -388,11 +413,12 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
 <!-- ════ HERO ════ -->
 <section class="hero">
   <div class="h-bg"></div>
-  <div class="h-mosaic">
-    <div class="mc"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=70&fit=crop" alt="Football"></div>
-    <div class="mc"><img src="https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=70&fit=crop" alt="Cricket"></div>
-    <div class="mc"><img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=70&fit=crop" alt="Rugby"></div>
-    <div class="mc"><img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=70&fit=crop" alt="Badminton"></div>
+  <!-- Hero T-shirt showcase right panel -->
+  <div class="h-tshirt-panel">
+    <div class="h-tshirt-wrap">
+      <img src="images/hero_tshirt.jpg" alt="Glammy Sports Premium T-Shirt" class="h-tshirt-img">
+      <div class="h-tshirt-badge">NEW SEASON 2026</div>
+    </div>
   </div>
   <div class="h-glow"></div>
   <div class="h-shard"></div>
@@ -428,22 +454,22 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
   </div>
   <div class="cgrid">
     <div class="cc rv" data-f="Football">
-      <div class="cc-img"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80&fit=crop" alt="Football" loading="lazy"></div>
+      <div class="cc-img"><img src="images/cat_football.jpg" alt="Football" loading="lazy"></div>
       <div class="cc-ov"></div><div class="cc-tl"></div>
       <div class="cc-body"><span class="cc-ico">⚽</span><div class="cc-name">Football</div><div class="cc-desc">Match-ready jerseys, shorts and training kits built for the beautiful game.</div><div class="cc-lnk">Explore →</div></div>
     </div>
     <div class="cc rv d1" data-f="Cricket">
-      <div class="cc-img"><img src="https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=80&fit=crop" alt="Cricket" loading="lazy"></div>
+      <div class="cc-img"><img src="images/cat_cricket.jpg" alt="Cricket" loading="lazy"></div>
       <div class="cc-ov"></div><div class="cc-tl"></div>
       <div class="cc-body"><span class="cc-ico">🏏</span><div class="cc-name">Cricket</div><div class="cc-desc">Test whites, training gear and performance cricket wear.</div><div class="cc-lnk">Explore →</div></div>
     </div>
     <div class="cc rv d2" data-f="Rugby">
-      <div class="cc-img"><img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80&fit=crop" alt="Rugby" loading="lazy"></div>
+      <div class="cc-img"><img src="images/cat_rugby.jpg" alt="Rugby" loading="lazy"></div>
       <div class="cc-ov"></div><div class="cc-tl"></div>
       <div class="cc-body"><span class="cc-ico">🏉</span><div class="cc-name">Rugby</div><div class="cc-desc">Impact-engineered jerseys and training wear for the scrum.</div><div class="cc-lnk">Explore →</div></div>
     </div>
     <div class="cc rv d3" data-f="Badminton">
-      <div class="cc-img"><img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80&fit=crop" alt="Badminton" loading="lazy"></div>
+      <div class="cc-img"><img src="images/cat_badminton.jpg" alt="Badminton" loading="lazy"></div>
       <div class="cc-ov"></div><div class="cc-tl"></div>
       <div class="cc-body"><span class="cc-ico">🏸</span><div class="cc-name">Badminton</div><div class="cc-desc">Lightweight breathable court wear for speed and precision.</div><div class="cc-lnk">Explore →</div></div>
     </div>
@@ -483,7 +509,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
   <div class="abgrid">
     <div class="abvis rv">
       <div class="abframe">
-        <img class="bg-photo" src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&q=80&fit=crop" alt="Athlete">
+        <img class="bg-photo" src="images/about_hero.jpg" alt="Athlete">
         <!-- Gold G letter — no logo image in body -->
         <div class="ab-g-letter">G</div>
         <div class="abquote">Forged for<br>Greatness</div>
@@ -532,7 +558,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
       <h2 class="sttl rv">Let's <em>Talk</em><br>Sportswear</h2>
       <p class="rv">Questions about our collection, sizing, or a bulk order? We'd love to hear from you — we respond within 24 hours.</p>
       <div class="ctdets rv d1">
-        <div class="ctrow"><div class="ctico">✉</div><div><div class="ctlbl">Email</div><div class="ctval">support@glammysports.com</div></div></div>
+        <div class="ctrow"><div class="ctico">✉</div><div><div class="ctlbl">Email</div><div class="ctval"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8dbddd8d8c7dadce8cfc4c9c5c5d1dbd8c7dadcdb86cbc7c5">[email&#160;protected]</a></div></div></div>
         <div class="ctrow"><div class="ctico">🌐</div><div><div class="ctlbl">Website</div><div class="ctval">glammysports.com</div></div></div>
         <div class="ctrow"><div class="ctico">📦</div><div><div class="ctlbl">Shipping</div><div class="ctval">Worldwide delivery available</div></div></div>
       </div>
@@ -567,7 +593,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
     <div class="ftcol">
       <div class="ftct">Support</div>
       <ul>
-        <li><a href="mailto:support@glammysports.com">Email Us</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#24575154544b56506443484549495d57544b5650570a474b49">Email Us</a></li>
         <li><button class="sz-footer" onclick="openModal()">UK Size Guide</button></li>
         <li><a href="#contact">Returns</a></li>
         <li><a href="#contact">Delivery Info</a></li>
@@ -744,7 +770,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
   </div><!-- /modal -->
 </div><!-- /modal-overlay -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* CURSOR */
 const cD=document.getElementById('cD'),cR=document.getElementById('cR');
 let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
@@ -783,22 +809,22 @@ function szTab(btn){
 
 /* PRODUCTS */
 const PRODS=[
-  {n:'Pro Match Jersey',     s:'Football', img:'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=75&fit=crop'},
-  {n:'Training Shorts',      s:'Football', img:'https://images.unsplash.com/photo-1580086319619-3ed498161c77?w=600&q=75&fit=crop'},
-  {n:'Training Jacket',      s:'Football', img:'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=75&fit=crop'},
-  {n:'Club Tracksuit',       s:'Football', img:'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=75&fit=crop'},
-  {n:'Test Cricket Whites',  s:'Cricket',  img:'https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=75&fit=crop'},
-  {n:'Cricket Polo Shirt',   s:'Cricket',  img:'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=600&q=75&fit=crop'},
-  {n:'Performance Trousers', s:'Cricket',  img:'https://images.unsplash.com/photo-1519861531473-9200262188bf?w=600&q=75&fit=crop'},
-  {n:'Training Sweatshirt',  s:'Cricket',  img:'https://images.unsplash.com/photo-1509477887414-681937645173?w=600&q=75&fit=crop'},
-  {n:'Rugby Impact Jersey',  s:'Rugby',    img:'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=75&fit=crop'},
-  {n:'Scrum Training Top',   s:'Rugby',    img:'https://images.unsplash.com/photo-1544298621-a28232b46ac5?w=600&q=75&fit=crop'},
-  {n:'Rugby Pro Shorts',     s:'Rugby',    img:'https://images.unsplash.com/photo-1464069668014-99d45f8a6d9c?w=600&q=75&fit=crop'},
-  {n:'Training Vest',        s:'Rugby',    img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=75&fit=crop'},
-  {n:'Court Speed Polo',     s:'Badminton',img:'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=75&fit=crop'},
-  {n:'Shuttle Shorts',       s:'Badminton',img:'https://images.unsplash.com/photo-1592656094267-764a45160876?w=600&q=75&fit=crop'},
-  {n:'Performance Skirt',    s:'Badminton',img:'https://images.unsplash.com/photo-1617083934551-ac1f3e74f5b4?w=600&q=75&fit=crop'},
-  {n:'Compression Court Tee',s:'Badminton',img:'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=75&fit=crop'},
+  {n:'Pro Match Jersey',     s:'Football', img:'images/football_jersey.jpg'},
+  {n:'Training Shorts',      s:'Football', img:'images/football_shorts.jpg'},
+  {n:'Training Jacket',      s:'Football', img:'images/football_jacket.jpg'},
+  {n:'Club Tracksuit',       s:'Football', img:'images/football_tracksuit.jpg'},
+  {n:'Test Cricket Whites',  s:'Cricket',  img:'images/cricket_whites.jpg'},
+  {n:'Cricket Polo Shirt',   s:'Cricket',  img:'images/cricket_polo.jpg'},
+  {n:'Performance Trousers', s:'Cricket',  img:'images/cricket_trousers.jpg'},
+  {n:'Training Sweatshirt',  s:'Cricket',  img:'images/cricket_sweatshirt.jpg'},
+  {n:'Rugby Impact Jersey',  s:'Rugby',    img:'images/rugby_jersey.jpg'},
+  {n:'Scrum Training Top',   s:'Rugby',    img:'images/rugby_training.jpg'},
+  {n:'Rugby Pro Shorts',     s:'Rugby',    img:'images/rugby_shorts.jpg'},
+  {n:'Training Vest',        s:'Rugby',    img:'images/rugby_vest.jpg'},
+  {n:'Court Speed Polo',     s:'Badminton',img:'images/badminton_polo.jpg'},
+  {n:'Shuttle Shorts',       s:'Badminton',img:'images/badminton_shorts.jpg'},
+  {n:'Performance Skirt',    s:'Badminton',img:'images/badminton_skirt.jpg'},
+  {n:'Compression Court Tee',s:'Badminton',img:'images/badminton_tee.jpg'},
 ];
 
 function renderP(filter){
@@ -834,10 +860,4 @@ document.querySelectorAll('.cc').forEach(c=>{
     setTimeout(()=>{document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));renderP(f)},500);
   });
 });
-function addC(btn){btn.textContent='✓ Sent';btn.classList.add('added');setTimeout(()=>{btn.textContent='Enquire Now';btn.classList.remove('added')},1800)}
-function fSub(btn){btn.textContent='✓ Message Sent!';btn.style.background='#1a6b1a';setTimeout(()=>{btn.textContent='Send Message';btn.style.background=''},3000)}
-
-renderP('all');
-</script>
-</body>
-</html>
+function addC(btn){btn.textContent='✓ Sent';btn.classList.add('added');setTimeout
