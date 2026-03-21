@@ -1,53 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Glammy Sports | Premium Sportswear</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Glammy Sports – Premium sportswear for performance, style, and confidence.">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glammy Sports | Premium Sportswear</title>
+<meta name="description" content="Glammy Sports – Premium sportswear engineered for performance, designed for greatness.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#8A6D2F;
+  --gold-glow:rgba(201,168,76,0.15);
+  --k:#06060A;--k2:#0C0C12;--k3:#13131C;--k4:#1A1A26;
+  --w:rgba(245,240,232,1);--w2:rgba(245,240,232,0.55);--w3:rgba(245,240,232,0.10);
+  --border:rgba(201,168,76,0.20);--borderf:rgba(245,240,232,0.07);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--k);color:var(--w);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:none;border:none;outline:none}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--k)}::-webkit-scrollbar-thumb{background:var(--gold)}
+::selection{background:var(--gold);color:var(--k)}
+
+/* CURSOR */
+#cDot,#cRing{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);border-radius:50%}
+#cDot{width:6px;height:6px;background:var(--gold)}
+#cRing{width:34px;height:34px;border:1px solid rgba(201,168,76,0.55);transition:width .25s,height .25s,border-color .25s}
+#cRing.hov{width:54px;height:54px;border-color:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:74px;transition:background .4s,border-color .4s}
+nav.scrolled{background:rgba(6,6,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.n-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:5px;text-transform:uppercase}
+.n-logo em{color:var(--gold);font-style:normal}
+.n-links{display:flex;align-items:center;gap:38px;list-style:none}
+.n-links a{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--w2);position:relative;transition:color .25s}
+.n-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.n-links a:hover{color:var(--gold)}.n-links a:hover::after{width:100%}
+.n-btn{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:10px 26px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s,transform .2s}
+.n-btn:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.hbg{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:4px}
+.hbg span{width:22px;height:1px;background:var(--w);display:block;transition:.3s}
+.mob{display:none;position:fixed;top:74px;left:0;right:0;z-index:999;background:rgba(6,6,10,.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);flex-direction:column;padding:32px 40px;gap:22px}
+.mob.open{display:flex}
+.mob a{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--w2);transition:color .2s}
+.mob a:hover{color:var(--gold)}
+
+/* TICKER */
+.tkr{background:var(--gold);overflow:hidden;white-space:nowrap;padding:13px 0;margin-top:74px}
+.tkr-t{display:inline-flex;animation:tkr 30s linear infinite}
+.tkr-t span{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--k);padding:0 44px;opacity:.85}
+.tkr-t span::before{content:'✦';margin-right:44px;opacity:.35}
+@keyframes tkr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 56px 80px;overflow:hidden}
+.h-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 85% 75% at 65% 38%,rgba(201,168,76,.08) 0%,transparent 55%),radial-gradient(ellipse 35% 55% at 8% 85%,rgba(201,168,76,.05) 0%,transparent 50%),var(--k)}
+.h-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 75% 75% at 65% 38%,black,transparent)}
+.h-slash{position:absolute;right:-8%;top:-25%;width:50%;height:155%;background:var(--k2);transform:skewX(-7deg);z-index:0;border-left:1px solid var(--border)}
+.h-slash::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 22px,rgba(201,168,76,.025) 22px,rgba(201,168,76,.025) 23px)}
+.h-content{position:relative;z-index:1;max-width:760px}
+.h-eye{display:inline-flex;align-items:center;gap:14px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:26px;animation:fu .7s ease both}
+.h-eye::before{content:'';width:30px;height:1px;background:var(--gold);opacity:.6}
+.h-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,10vw,10rem);font-weight:300;line-height:.9;letter-spacing:-1px;animation:fu .8s ease .1s both}
+.h-h1 strong{font-weight:600;font-style:italic;color:var(--gold)}
+.h-h1 .ol{-webkit-text-stroke:1px rgba(245,240,232,.35);color:transparent}
+.h-sub{margin-top:26px;max-width:430px;font-size:.93rem;line-height:1.85;color:var(--w2);animation:fu .8s ease .2s both}
+.h-act{display:flex;gap:20px;align-items:center;margin-top:42px;animation:fu .8s ease .3s both}
+.btn-g{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.73rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:15px 40px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .25s,transform .2s,box-shadow .25s}
+.btn-g:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,168,76,.28)}
+.btn-l{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--w2);border-bottom:1px solid rgba(245,240,232,.18);padding-bottom:2px;transition:color .2s,border-color .2s}
+.btn-l:hover{color:var(--gold);border-color:var(--gold)}
+.h-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:58px;position:relative;z-index:1;animation:fu .8s ease .45s both}
+.s-pill{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk);border:1px solid var(--border);padding:8px 20px;transition:color .2s,border-color .2s,background .2s}
+.s-pill:hover{color:var(--gold);border-color:var(--gold);background:var(--gold-glow)}
+.h-badge{position:absolute;right:9%;bottom:10%;z-index:2;width:126px;height:126px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;animation:spin 20s linear infinite;opacity:.6}
+.h-badge-t{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-align:center;line-height:1.7}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.scrl{position:absolute;bottom:34px;left:56px;z-index:2;display:flex;align-items:center;gap:14px;animation:fu 1s ease .6s both}
+.scrl-line{width:46px;height:1px;background:var(--gold);opacity:.35}
+.scrl-t{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--w2)}
+
+/* SECTION COMMON */
+.sw{padding:108px 56px}
+.s-eye{display:inline-flex;align-items:center;gap:14px;font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.s-eye::before{content:'';width:26px;height:1px;background:var(--gold);opacity:.6}
+.s-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,4.2rem);font-weight:300;line-height:1.04;letter-spacing:-.5px}
+.s-ttl em{color:var(--gold);font-style:italic}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* CATEGORIES */
+.cats{background:var(--k2)}
+.cats-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;flex-wrap:wrap;gap:16px}
+.c-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:14px}
+.c-card{position:relative;overflow:hidden;cursor:none;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
+.c-card:hover{transform:translateY(-5px)}
+.c-card:first-child{min-height:380px}
+.c-card:not(:first-child){aspect-ratio:4/5}
+.c-svgbg{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;opacity:.06;transition:opacity .4s}
+.c-card:hover .c-svgbg{opacity:.13}
+.c-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(6,6,10,.95) 0%,rgba(6,6,10,.15) 60%,transparent 100%);transition:background .4s}
+.c-card:hover .c-ov{background:linear-gradient(to top,rgba(6,6,10,.98) 0%,rgba(6,6,10,.45) 60%,rgba(201,168,76,.04) 100%)}
+.c-topline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);z-index:3;transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.c-card:hover .c-topline{transform:scaleX(1)}
+.c-body{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:26px}
+.c-ico{font-size:2.4rem;margin-bottom:10px;display:block}
+.c-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;letter-spacing:1px;color:var(--w);transition:color .3s}
+.c-card:hover .c-name{color:var(--gold)}
+.c-desc{font-size:.78rem;color:var(--w2);margin-top:6px;line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s,opacity .4s;opacity:0}
+.c-card:hover .c-desc{max-height:56px;opacity:1}
+.c-lnk{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:12px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.c-card:hover .c-lnk{opacity:1;transform:translateY(0)}
+.cf{background:linear-gradient(155deg,#08101a,#0d1f35)}
+.cc{background:linear-gradient(155deg,#0a150a,#0c2410)}
+.cr{background:linear-gradient(155deg,#180c04,#281408)}
+.cb{background:linear-gradient(155deg,#0c0818,#16062c)}
+
+/* PRODUCTS */
+#products{background:var(--k)}
+.p-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:46px}
+.f-row{display:flex;gap:6px;flex-wrap:wrap}
+.fb{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:none;border:1px solid var(--borderf);color:var(--w2);padding:9px 20px;transition:all .2s}
+.fb:hover{border-color:var(--border);color:var(--w)}
+.fb.on{background:var(--gold);border-color:var(--gold);color:var(--k)}
+.p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.p-card{background:var(--k3);position:relative;overflow:hidden;cursor:none;transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s}
+.p-card:hover{transform:translateY(-8px);box-shadow:0 24px 56px rgba(0,0,0,.5),0 0 0 1px var(--border)}
+.p-img{aspect-ratio:1;background:var(--k4);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.p-img svg{width:55%;height:55%;opacity:.22;transition:opacity .35s,transform .35s}
+.p-card:hover .p-img svg{opacity:.42;transform:scale(1.07)}
+.p-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06),transparent 60%);opacity:0;transition:opacity .35s}
+.p-card:hover .p-img::after{opacity:1}
+.p-tag{position:absolute;top:12px;left:12px;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(6,6,10,.88);border:1px solid var(--border);padding:4px 11px;backdrop-filter:blur(8px)}
+.p-body{padding:17px 19px 20px}
+.p-name{font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.5px;color:var(--w);line-height:1.3;margin-bottom:13px}
+.p-foot{display:flex;align-items:center;justify-content:space-between}
+.p-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold)}
+.p-add{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;background:transparent;color:var(--gold);border:1px solid var(--border);padding:8px 15px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:background .2s,color .2s,border-color .2s}
+.p-add:hover,.p-add.added{background:var(--gold);color:var(--k);border-color:var(--gold)}
+.p-bar{position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .5s ease}
+.p-card:hover .p-bar{width:100%}
+
+/* ABOUT */
+.about{background:var(--k2)}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.ab-vis{position:relative}
+.ab-frame{position:relative;aspect-ratio:3/4;background:var(--k3);overflow:hidden}
+.ab-frame-in{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#0d1020,#0a1a0a,#120d08)}
+.ab-frame-in svg{width:68%;height:68%;opacity:.18}
+.ab-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(6,6,10,.92) 100%);z-index:1}
+.ab-border{position:absolute;top:18px;left:18px;right:-18px;bottom:-18px;border:1px solid var(--border);z-index:-1}
+.ab-tag{position:absolute;bottom:26px;left:26px;z-index:3;font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:600;font-style:italic;color:var(--gold);line-height:1.1}
+.ab-txt p{font-size:.93rem;line-height:1.85;color:var(--w2);margin-bottom:16px}
+.ab-txt .s-ttl{margin-bottom:22px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+.pillar{background:var(--k3);border:1px solid var(--borderf);padding:18px;transition:border-color .3s}
+.pillar:hover{border-color:var(--border)}
+.pillar-ico{font-size:1.3rem;margin-bottom:7px}
+.pillar-n{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.pillar-d{font-size:.8rem;color:var(--w2);line-height:1.6}
+.ab-stats{display:flex;gap:32px;margin-top:32px;padding-top:32px;border-top:1px solid var(--borderf)}
+.ast-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1}
+.ast-l{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--w2);margin-top:4px}
+
+/* TESTIMONIALS */
+.testi{background:var(--k)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.t-card{background:var(--k3);border:1px solid var(--borderf);padding:30px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.t-card:hover{border-color:var(--border);transform:translateY(-4px)}
+.t-card::before{content:'\201C';position:absolute;top:-12px;right:20px;font-family:'Cormorant Garamond',serif;font-size:7.5rem;font-weight:600;color:rgba(201,168,76,.07);line-height:1;pointer-events:none}
+.t-stars{display:flex;gap:3px;margin-bottom:14px}
+.t-stars span{color:var(--gold);font-size:.72rem}
+.t-q{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:300;font-style:italic;line-height:1.75;color:var(--w);margin-bottom:18px}
+.t-auth{display:flex;align-items:center;gap:12px}
+.t-av{width:38px;height:38px;border-radius:50%;background:var(--k4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold)}
+.t-nm{font-family:'Barlow Condensed',sans-serif;font-size:.77rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--w)}
+.t-sp{font-size:.7rem;color:var(--gold-dk);letter-spacing:1px}
+
+/* CONTACT */
+#contact{background:var(--k2)}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+.ct-txt p{font-size:.93rem;line-height:1.85;color:var(--w2);margin:18px 0 34px;max-width:400px}
+.ct-dets{display:flex;flex-direction:column;gap:14px}
+.ct-row{display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid var(--borderf);transition:border-color .3s}
+.ct-row:hover{border-color:var(--border)}
+.ct-ico{font-size:1rem;width:22px;text-align:center}
+.ct-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk)}
+.ct-val{font-size:.88rem;color:var(--w);margin-top:2px}
+.ct-form{background:var(--k3);padding:38px;border:1px solid var(--borderf)}
+.ct-form-ttl{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--w);margin-bottom:26px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
+.fg{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
+.fg label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk)}
+.fg input,.fg textarea,.fg select{background:var(--k4);border:1px solid var(--borderf);color:var(--w);padding:11px 14px;font-family:'Barlow',sans-serif;font-size:.86rem;font-weight:300;outline:none;transition:border-color .2s;resize:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold)}
+.fg textarea{min-height:96px}
+.fg select option{background:var(--k3)}
+.f-sub{width:100%;margin-top:4px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:15px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .2s,transform .2s}
+.f-sub:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.f-note{font-size:.72rem;color:var(--w2);margin-top:9px;text-align:center;opacity:.45}
+
+/* FOOTER */
+footer{background:var(--k);border-top:1px solid var(--borderf);padding:56px}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
+.ft-logo em{color:var(--gold);font-style:normal}
+.ft-brand p{font-size:.83rem;line-height:1.75;color:var(--w2);max-width:255px}
+.ft-col-t{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-col ul a{font-size:.83rem;color:var(--w2);transition:color .2s}
+.ft-col ul a:hover{color:var(--gold)}
+.ft-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:30px;border-top:1px solid var(--borderf)}
+.ft-copy{font-size:.76rem;color:var(--w2);opacity:.45}
+.ft-soc{display:flex;gap:12px}
+.ft-soc a{width:34px;height:34px;border:1px solid var(--borderf);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--w2);transition:border-color .2s,color .2s}
+.ft-soc a:hover{border-color:var(--gold);color:var(--gold)}
+
+@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .c-grid{grid-template-columns:1fr 1fr}.c-card:first-child{grid-row:auto;min-height:260px;aspect-ratio:unset}
+  .ft-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .p-grid{grid-template-columns:repeat(2,1fr)}
+  .ab-grid{grid-template-columns:1fr;gap:48px}.ab-vis{display:none}
+  .ct-grid{grid-template-columns:1fr;gap:48px}
+  .t-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:0 24px}.n-links,.n-btn{display:none}.hbg{display:flex}
+  .hero{padding:90px 24px 60px}.sw{padding:70px 24px}
+  .c-grid{grid-template-columns:1fr 1fr}
+  .p-grid{grid-template-columns:repeat(2,1fr);gap:11px}
+  .pillars{grid-template-columns:1fr}.f2{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr;gap:30px}
+  footer{padding:40px 24px}.ft-btm{flex-direction:column;align-items:flex-start}
+  .scrl{left:24px}.h-badge{display:none}
+}
+@media(max-width:520px){
+  .t-grid{grid-template-columns:1fr}
+  .h-h1{font-size:clamp(3.4rem,13vw,5.5rem)}
+  .ab-stats{gap:18px}
+}
+</style>
 </head>
 <body>
 
-<header>
-    <div class="logo">GLAMMY SPORTS</div>
-    <nav>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<div id="cDot"></div>
+<div id="cRing"></div>
 
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="n-logo">GLAMMY <em>SPORTS</em></a>
+  <ul class="n-links">
+    <li><a href="#sports">Sports</a></li>
+    <li><a href="#products">Collection</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="n-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+  <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob" id="mob">
+  <a href="#sports"   onclick="cm()">Sports</a>
+  <a href="#products" onclick="cm()">Collection</a>
+  <a href="#about"    onclick="cm()">About</a>
+  <a href="#contact"  onclick="cm()">Contact</a>
+</div>
+
+<!-- TICKER -->
+<div class="tkr">
+  <div class="tkr-t">
+    <span>Football</span><span>Cricket</span><span>Rugby</span><span>Badminton</span>
+    <span>Performance Wear</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
+    <span>Football</span><span>Cricket</span><span>Rugby</span><span>Badminton</span>
+    <span>Performance Wear</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
+  </div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-    <h1>Train Bold. Look Powerful.</h1>
-    <p>Premium sportswear built for performance & confidence</p>
-    <a href="#products" class="btn">Shop Collection</a>
-</section>
-
-<section id="products" class="products">
-    <h2>Featured Collection</h2>
-    <div id="product-grid" class="product-grid">
-        <!-- Products will be dynamically loaded here -->
+  <div class="h-bg"></div>
+  <div class="h-slash"></div>
+  <div class="h-content">
+    <div class="h-eye">Premium Sportswear — Est. 2026</div>
+    <h1 class="h-h1">TRAIN<br><strong>BOLD.</strong><br><span class="ol">LOOK POWER</span>FUL.</h1>
+    <p class="h-sub">Premium sportswear engineered for athletes who refuse to settle — built for the pitch, the crease, the court and the field.</p>
+    <div class="h-act">
+      <a href="#products" class="btn-g">Shop Collection</a>
+      <a href="#about" class="btn-l">Our Story →</a>
     </div>
+  </div>
+  <div class="h-pills">
+    <div class="s-pill">⚽ Football</div>
+    <div class="s-pill">🏏 Cricket</div>
+    <div class="s-pill">🏉 Rugby</div>
+    <div class="s-pill">🏸 Badminton</div>
+  </div>
+  <div class="h-badge"><div class="h-badge-t">PREMIUM<br>QUALITY<br>✦<br>2026</div></div>
+  <div class="scrl"><div class="scrl-line"></div><span class="scrl-t">Scroll to explore</span></div>
 </section>
 
-<section id="about" class="about">
-    <h2>About Glammy Sports</h2>
-    <p>
-        Glammy Sports creates premium-quality sportswear designed for athletes,
-        gym enthusiasts, and everyday movers who demand style and performance.
-    </p>
+<!-- CATEGORIES -->
+<section class="sw cats" id="sports">
+  <div class="cats-hd rv">
+    <div>
+      <div class="s-eye">Shop by Sport</div>
+      <h2 class="s-ttl">Our <em>Collections</em></h2>
+    </div>
+    <a href="#products" class="btn-l rv d1">View All →</a>
+  </div>
+  <div class="c-grid">
+    <div class="c-card cf rv" data-f="Football">
+      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="2.5"/><polygon points="100,22 122,72 178,72 134,104 150,158 100,126 50,158 66,104 22,72 78,72" stroke="#C9A84C" stroke-width="2" fill="none"/></svg></div>
+      <div class="c-ov"></div><div class="c-topline"></div>
+      <div class="c-body"><span class="c-ico">⚽</span><div class="c-name">Football</div><div class="c-desc">Match-ready jerseys, shorts and training kits built for the beautiful game.</div><div class="c-lnk">Explore →</div></div>
+    </div>
+    <div class="c-card cc rv d1" data-f="Cricket">
+      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><rect x="82" y="16" width="36" height="130" rx="6" stroke="#C9A84C" stroke-width="2.5"/><ellipse cx="100" cy="170" rx="52" ry="14" stroke="#C9A84C" stroke-width="2"/><line x1="64" y1="72" x2="136" y2="72" stroke="#C9A84C" stroke-width="1.5"/></svg></div>
+      <div class="c-ov"></div><div class="c-topline"></div>
+      <div class="c-body"><span class="c-ico">🏏</span><div class="c-name">Cricket</div><div class="c-desc">Test whites, training gear and performance cricket wear.</div><div class="c-lnk">Explore →</div></div>
+    </div>
+    <div class="c-card cr rv d2" data-f="Rugby">
+      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><ellipse cx="100" cy="100" rx="74" ry="46" stroke="#C9A84C" stroke-width="2.5"/><line x1="26" y1="100" x2="174" y2="100" stroke="#C9A84C" stroke-width="1.8"/><line x1="100" y1="54" x2="100" y2="146" stroke="#C9A84C" stroke-width="1.8"/></svg></div>
+      <div class="c-ov"></div><div class="c-topline"></div>
+      <div class="c-body"><span class="c-ico">🏉</span><div class="c-name">Rugby</div><div class="c-desc">Impact-engineered jerseys and training wear for the scrum and beyond.</div><div class="c-lnk">Explore →</div></div>
+    </div>
+    <div class="c-card cb rv d3" data-f="Badminton">
+      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="52" r="32" stroke="#C9A84C" stroke-width="2.5"/><line x1="100" y1="84" x2="100" y2="186" stroke="#C9A84C" stroke-width="4"/><line x1="62" y1="84" x2="138" y2="84" stroke="#C9A84C" stroke-width="1.8"/><line x1="68" y1="108" x2="132" y2="108" stroke="#C9A84C" stroke-width="1.4" opacity=".5"/><line x1="76" y1="130" x2="124" y2="130" stroke="#C9A84C" stroke-width="1.2" opacity=".3"/></svg></div>
+      <div class="c-ov"></div><div class="c-topline"></div>
+      <div class="c-body"><span class="c-ico">🏸</span><div class="c-name">Badminton</div><div class="c-desc">Lightweight breathable court wear for speed and precision play.</div><div class="c-lnk">Explore →</div></div>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: support@glammysports.com</p>
+<!-- PRODUCTS -->
+<section class="sw" id="products">
+  <div class="p-hd rv">
+    <div><div class="s-eye">Featured Collection</div><h2 class="s-ttl">Latest <em>Drops</em></h2></div>
+    <div class="f-row" id="fRow">
+      <button class="fb on" data-f="all">All</button>
+      <button class="fb" data-f="Football">Football</button>
+      <button class="fb" data-f="Cricket">Cricket</button>
+      <button class="fb" data-f="Rugby">Rugby</button>
+      <button class="fb" data-f="Badminton">Badminton</button>
+    </div>
+  </div>
+  <div class="p-grid" id="pGrid"></div>
 </section>
 
+<!-- ABOUT -->
+<section class="sw about" id="about">
+  <div class="ab-grid">
+    <div class="ab-vis rv">
+      <div class="ab-frame">
+        <div class="ab-frame-in">
+          <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="145" r="85" stroke="#C9A84C" stroke-width="1.5" opacity=".55"/>
+            <circle cx="150" cy="145" r="56" stroke="#C9A84C" stroke-width="1" opacity=".28"/>
+            <line x1="150" y1="60" x2="150" y2="300" stroke="#C9A84C" stroke-width="1" opacity=".38"/>
+            <line x1="65" y1="145" x2="235" y2="145" stroke="#C9A84C" stroke-width="1" opacity=".38"/>
+            <polygon points="150,92 174,132 224,132 186,157 200,202 150,177 100,202 114,157 76,132 126,132" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity=".45"/>
+            <circle cx="150" cy="318" r="18" stroke="#C9A84C" stroke-width="2" opacity=".65"/>
+            <line x1="150" y1="230" x2="150" y2="300" stroke="#C9A84C" stroke-width="2.5" opacity=".65"/>
+          </svg>
+        </div>
+        <div class="ab-tag">Born to<br>Perform</div>
+      </div>
+      <div class="ab-border"></div>
+    </div>
+    <div class="ab-txt">
+      <div class="s-eye rv">Our Story</div>
+      <h2 class="s-ttl rv">Built for <em>Athletes</em><br>Who Demand More</h2>
+      <p class="rv">Glammy Sports was born from a simple belief: that performance wear should be as powerful as the athletes who wear it. Every stitch, every fabric, every cut is made with purpose.</p>
+      <p class="rv d1">From grassroots football pitches to county cricket grounds, we design sportswear that moves with you — refusing to compromise between function and style.</p>
+      <div class="pillars rv d2">
+        <div class="pillar"><div class="pillar-ico">⚡</div><div class="pillar-n">Performance</div><div class="pillar-d">Fabrics engineered for mobility and breathability.</div></div>
+        <div class="pillar"><div class="pillar-ico">✦</div><div class="pillar-n">Premium</div><div class="pillar-d">Gold-standard quality in every garment.</div></div>
+        <div class="pillar"><div class="pillar-ico">🎯</div><div class="pillar-n">Precision</div><div class="pillar-d">Sport-specific cuts for how athletes actually move.</div></div>
+        <div class="pillar"><div class="pillar-ico">🏆</div><div class="pillar-n">Style</div><div class="pillar-d">Look powerful on and off the field and court.</div></div>
+      </div>
+      <div class="ab-stats rv d3">
+        <div><div class="ast-n">4+</div><div class="ast-l">Sports</div></div>
+        <div><div class="ast-n">100%</div><div class="ast-l">Performance</div></div>
+        <div><div class="ast-n">2026</div><div class="ast-l">Est.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sw testi" id="reviews">
+  <div class="rv"><div class="s-eye">What Athletes Say</div><h2 class="s-ttl">Trusted by <em>Performers</em></h2></div>
+  <div class="t-grid">
+    <div class="t-card rv">
+      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="t-q">"The quality is unreal. Wore the football kit in a league match and it held up perfectly — comfortable, sharp, and genuinely premium."</p>
+      <div class="t-auth"><div class="t-av">JM</div><div><div class="t-nm">James M.</div><div class="t-sp">Football · 5-a-side</div></div></div>
+    </div>
+    <div class="t-card rv d1">
+      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="t-q">"Finally a brand that understands cricket players. The whites are crisp, the fit is spot on, and the fabric breathes beautifully on warm days."</p>
+      <div class="t-auth"><div class="t-av">PK</div><div><div class="t-nm">Priya K.</div><div class="t-sp">Cricket · Club Level</div></div></div>
+    </div>
+    <div class="t-card rv d2">
+      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="t-q">"The badminton polo is hands-down the best I've played in. Lightweight, moves with you and looks brilliant at the same time."</p>
+      <div class="t-auth"><div class="t-av">AL</div><div><div class="t-nm">Alex L.</div><div class="t-sp">Badminton · County</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sw" id="contact">
+  <div class="ct-grid">
+    <div class="ct-txt">
+      <div class="s-eye rv">Get In Touch</div>
+      <h2 class="s-ttl rv">Let's <em>Talk</em><br>Sportswear</h2>
+      <p class="rv">Questions about our collection, sizing, or a bulk order enquiry? We'd love to hear from you — we respond within 24 hours.</p>
+      <div class="ct-dets rv d1">
+        <div class="ct-row"><div class="ct-ico">✉</div><div><div class="ct-lbl">Email</div><div class="ct-val">support@glammysports.com</div></div></div>
+        <div class="ct-row"><div class="ct-ico">🌐</div><div><div class="ct-lbl">Website</div><div class="ct-val">glammysports.com</div></div></div>
+        <div class="ct-row"><div class="ct-ico">📦</div><div><div class="ct-lbl">Shipping</div><div class="ct-val">Worldwide delivery available</div></div></div>
+      </div>
+    </div>
+    <div class="ct-form rv d2">
+      <div class="ct-form-ttl">Send a Message</div>
+      <div class="f2">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com"></div>
+      <div class="fg"><label>Sport Interest</label>
+        <select><option value="">Select...</option><option>Football</option><option>Cricket</option><option>Rugby</option><option>Badminton</option><option>General Enquiry</option></select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="Tell us about your enquiry..."></textarea></div>
+      <button class="f-sub" onclick="fSub(this)">Send Message</button>
+      <p class="f-note">We'll respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Glammy Sports. All rights reserved.</p>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <div class="ft-logo">GLAMMY <em>SPORTS</em></div>
+      <p>Premium sportswear engineered for performance and designed for greatness. Built for athletes who refuse to settle.</p>
+    </div>
+    <div class="ft-col"><div class="ft-col-t">Collection</div><ul><li><a href="#products">Football</a></li><li><a href="#products">Cricket</a></li><li><a href="#products">Rugby</a></li><li><a href="#products">Badminton</a></li></ul></div>
+    <div class="ft-col"><div class="ft-col-t">Company</div><ul><li><a href="#about">About Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="ft-col"><div class="ft-col-t">Support</div><ul><li><a href="mailto:support@glammysports.com">Email Us</a></li><li><a href="#contact">Size Guide</a></li><li><a href="#contact">Returns</a></li></ul></div>
+  </div>
+  <div class="ft-btm">
+    <div class="ft-copy">© 2026 Glammy Sports. All rights reserved.</div>
+    <div class="ft-soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="Facebook">FB</a></div>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+/* CURSOR */
+const cD=document.getElementById('cDot'),cR=document.getElementById('cRing');
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+document.querySelectorAll('a,button,.c-card,.p-card,.t-card,.pillar').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cR.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>cR.classList.remove('hov'));
+});
+(function loop(){cD.style.cssText=`left:${mx}px;top:${my}px`;rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cR.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop)})();
+
+/* NAV SCROLL */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+
+/* MOBILE NAV */
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));
+function cm(){document.getElementById('mob').classList.remove('open')}
+
+/* REVEAL */
+const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* PRODUCTS */
+const SVG={
+  football:`<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="52" stroke="#C9A84C" stroke-width="1.8"/><polygon points="60,18 76,50 110,50 82,70 94,105 60,84 26,105 38,70 10,50 44,50" stroke="#C9A84C" stroke-width="1.6" fill="none"/></svg>`,
+  cricket:`<svg viewBox="0 0 120 120" fill="none"><rect x="50" y="10" width="20" height="80" rx="4" stroke="#C9A84C" stroke-width="1.8"/><ellipse cx="60" cy="104" rx="34" ry="10" stroke="#C9A84C" stroke-width="1.6"/><line x1="40" y1="50" x2="80" y2="50" stroke="#C9A84C" stroke-width="1.4"/></svg>`,
+  rugby:`<svg viewBox="0 0 120 120" fill="none"><ellipse cx="60" cy="60" rx="50" ry="32" stroke="#C9A84C" stroke-width="1.8"/><line x1="10" y1="60" x2="110" y2="60" stroke="#C9A84C" stroke-width="1.4"/><line x1="60" y1="28" x2="60" y2="92" stroke="#C9A84C" stroke-width="1.4"/></svg>`,
+  badminton:`<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="32" r="20" stroke="#C9A84C" stroke-width="1.8"/><line x1="60" y1="52" x2="60" y2="112" stroke="#C9A84C" stroke-width="2.5"/><line x1="36" y1="52" x2="84" y2="52" stroke="#C9A84C" stroke-width="1.4"/><line x1="40" y1="68" x2="80" y2="68" stroke="#C9A84C" stroke-width="1.1" opacity=".5"/><line x1="44" y1="84" x2="76" y2="84" stroke="#C9A84C" stroke-width="1" opacity=".3"/></svg>`
+};
+const PRODS=[
+  {n:'Pro Match Jersey',s:'Football',p:'£39.99',t:'football'},
+  {n:'Training Shorts Elite',s:'Football',p:'£24.99',t:'football'},
+  {n:'Goalkeeper Gloves',s:'Football',p:'£32.99',t:'football'},
+  {n:'Club Tracksuit',s:'Football',p:'£64.99',t:'football'},
+  {n:'Test Cricket Whites',s:'Cricket',p:'£54.99',t:'cricket'},
+  {n:'Cricket Polo Shirt',s:'Cricket',p:'£34.99',t:'cricket'},
+  {n:'Performance Trousers',s:'Cricket',p:'£39.99',t:'cricket'},
+  {n:'Training Sweatshirt',s:'Cricket',p:'£44.99',t:'cricket'},
+  {n:'Rugby Impact Jersey',s:'Rugby',p:'£44.99',t:'rugby'},
+  {n:'Scrum Training Top',s:'Rugby',p:'£38.99',t:'rugby'},
+  {n:'Rugby Pro Shorts',s:'Rugby',p:'£29.99',t:'rugby'},
+  {n:'Training Vest',s:'Rugby',p:'£22.99',t:'rugby'},
+  {n:'Court Speed Polo',s:'Badminton',p:'£32.99',t:'badminton'},
+  {n:'Shuttle Shorts',s:'Badminton',p:'£22.99',t:'badminton'},
+  {n:'Performance Skirt',s:'Badminton',p:'£26.99',t:'badminton'},
+  {n:'Compression Court Tee',s:'Badminton',p:'£28.99',t:'badminton'},
+];
+
+function renderP(filter){
+  const g=document.getElementById('pGrid');
+  const list=filter==='all'?PRODS:PRODS.filter(p=>p.s===filter);
+  g.innerHTML=list.map((p,i)=>`
+    <div class="p-card rv d${(i%4)+1}">
+      <div class="p-img">${SVG[p.t]}<div class="p-tag">${p.s}</div></div>
+      <div class="p-body">
+        <div class="p-name">${p.n}</div>
+        <div class="p-foot">
+          <div class="p-price">${p.p}</div>
+          <button class="p-add" onclick="addC(this)">Add</button>
+        </div>
+      </div>
+      <div class="p-bar"></div>
+    </div>`).join('');
+  g.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+}
+
+document.getElementById('fRow').addEventListener('click',e=>{
+  const b=e.target.closest('.fb');if(!b)return;
+  document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');renderP(b.dataset.f);
+});
+
+document.querySelectorAll('.c-card').forEach(c=>{
+  c.addEventListener('click',()=>{
+    const f=c.dataset.f;
+    document.getElementById('products').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>{
+      document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+      renderP(f);
+    },500);
+  });
+});
+
+function addC(btn){btn.textContent='✓ Added';btn.classList.add('added');setTimeout(()=>{btn.textContent='Add';btn.classList.remove('added')},1800)}
+function fSub(btn){btn.textContent='✓ Sent — Thank You!';btn.style.background='#1f6b1f';setTimeout(()=>{btn.textContent='Send Message';btn.style.background=''},3000)}
+
+renderP('all');
+</script>
 </body>
 </html>
