@@ -4,266 +4,368 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Glammy Sports | Premium Sportswear</title>
-<meta name="description" content="Glammy Sports – Premium sportswear engineered for performance, designed for greatness.">
+<meta name="description" content="Glammy Sports – Premium sportswear forged for performance, designed for greatness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gold:#C9A84C;--gold-lt:#E8C97A;--gold-dk:#8A6D2F;
-  --gold-glow:rgba(201,168,76,0.15);
-  --k:#06060A;--k2:#0C0C12;--k3:#13131C;--k4:#1A1A26;
-  --w:rgba(245,240,232,1);--w2:rgba(245,240,232,0.55);--w3:rgba(245,240,232,0.10);
-  --border:rgba(201,168,76,0.20);--borderf:rgba(245,240,232,0.07);
+:root {
+  --g1:#E8A820; --g2:#C8860A; --g3:#8B4A00; --g4:#5C3000;
+  --cream:#F5E6C8; --cream2:rgba(245,230,200,.58); --cream3:rgba(245,230,200,.10);
+  --k:#080608; --k2:#0D0B0E; --k3:#131018; --k4:#1A1520;
+  --bg:rgba(200,134,10,.22); --bf:rgba(245,230,200,.07);
+  --glow:rgba(232,168,32,.13);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--k);color:var(--w);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+body{background:var(--k);color:var(--cream);font-family:'Raleway',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
 a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:none;border:none;outline:none}
-::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--k)}::-webkit-scrollbar-thumb{background:var(--gold)}
-::selection{background:var(--gold);color:var(--k)}
+button{font-family:inherit;cursor:none;outline:none;border:none}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--k)}::-webkit-scrollbar-thumb{background:var(--g2)}
+::selection{background:var(--g2);color:var(--k)}
 
-/* CURSOR */
-#cDot,#cRing{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);border-radius:50%}
-#cDot{width:6px;height:6px;background:var(--gold)}
-#cRing{width:34px;height:34px;border:1px solid rgba(201,168,76,0.55);transition:width .25s,height .25s,border-color .25s}
-#cRing.hov{width:54px;height:54px;border-color:var(--gold)}
+/* ── CURSOR ──────────────────────────────────── */
+#cD,#cR{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);border-radius:50%}
+#cD{width:5px;height:5px;background:var(--g1)}
+#cR{width:32px;height:32px;border:1px solid rgba(232,168,32,.48);transition:width .22s,height .22s,border-color .22s,background .22s}
+#cR.hov{width:52px;height:52px;border-color:var(--g1);background:rgba(232,168,32,.06)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:74px;transition:background .4s,border-color .4s}
-nav.scrolled{background:rgba(6,6,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.n-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:5px;text-transform:uppercase}
-.n-logo em{color:var(--gold);font-style:normal}
-.n-links{display:flex;align-items:center;gap:38px;list-style:none}
-.n-links a{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--w2);position:relative;transition:color .25s}
-.n-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
-.n-links a:hover{color:var(--gold)}.n-links a:hover::after{width:100%}
-.n-btn{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:10px 26px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:background .2s,transform .2s}
-.n-btn:hover{background:var(--gold-lt);transform:translateY(-1px)}
-.hbg{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:4px}
-.hbg span{width:22px;height:1px;background:var(--w);display:block;transition:.3s}
-.mob{display:none;position:fixed;top:74px;left:0;right:0;z-index:999;background:rgba(6,6,10,.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);flex-direction:column;padding:32px 40px;gap:22px}
+/* ── NAV ─────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:76px;transition:background .4s,border-color .4s}
+nav.sc{background:rgba(8,6,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bg)}
+.nl{display:flex;align-items:center;gap:13px}
+.nl img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(232,168,32,.38));transition:filter .3s}
+.nl:hover img{filter:drop-shadow(0 0 16px rgba(232,168,32,.65))}
+.nlt{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--cream);line-height:1.1}
+.nlt span{display:block;font-size:.5rem;font-weight:400;letter-spacing:6px;color:var(--g2);margin-top:1px}
+.nm{display:flex;align-items:center;gap:34px;list-style:none}
+.nm a{font-family:'Cinzel',serif;font-size:.6rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--cream2);position:relative;transition:color .25s}
+.nm a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--g1);transition:width .3s}
+.nm a:hover{color:var(--g1)}.nm a:hover::after{width:100%}
+.ncta{font-family:'Cinzel',serif;font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,var(--g3),var(--g2) 50%,var(--g1));color:var(--k);padding:10px 24px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);transition:box-shadow .25s,transform .2s}
+.ncta:hover{box-shadow:0 6px 24px rgba(232,168,32,.32);transform:translateY(-1px)}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;padding:4px}
+.hbg span{width:22px;height:1px;background:var(--cream);display:block;transition:.3s}
+.mob{display:none;position:fixed;top:76px;left:0;right:0;z-index:999;background:rgba(8,6,8,.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--bg);flex-direction:column;padding:28px 38px;gap:20px}
 .mob.open{display:flex}
-.mob a{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--w2);transition:color .2s}
-.mob a:hover{color:var(--gold)}
+.mob a{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--cream2);transition:color .2s}
+.mob a:hover{color:var(--g1)}
 
-/* TICKER */
-.tkr{background:var(--gold);overflow:hidden;white-space:nowrap;padding:13px 0;margin-top:74px}
+/* ── TICKER ──────────────────────────────────── */
+.tkr{overflow:hidden;white-space:nowrap;padding:13px 0;margin-top:76px;background:linear-gradient(90deg,var(--g4),var(--g3),var(--g2),var(--g1),var(--g2),var(--g3),var(--g4))}
 .tkr-t{display:inline-flex;animation:tkr 30s linear infinite}
-.tkr-t span{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--k);padding:0 44px;opacity:.85}
-.tkr-t span::before{content:'✦';margin-right:44px;opacity:.35}
+.tkr-t span{font-family:'Cinzel',serif;font-size:.6rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--k);padding:0 40px;opacity:.86}
+.tkr-t span::before{content:'⟡';margin-right:40px;opacity:.45}
 @keyframes tkr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 56px 80px;overflow:hidden}
-.h-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 85% 75% at 65% 38%,rgba(201,168,76,.08) 0%,transparent 55%),radial-gradient(ellipse 35% 55% at 8% 85%,rgba(201,168,76,.05) 0%,transparent 50%),var(--k)}
-.h-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 75% 75% at 65% 38%,black,transparent)}
-.h-slash{position:absolute;right:-8%;top:-25%;width:50%;height:155%;background:var(--k2);transform:skewX(-7deg);z-index:0;border-left:1px solid var(--border)}
-.h-slash::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 22px,rgba(201,168,76,.025) 22px,rgba(201,168,76,.025) 23px)}
-.h-content{position:relative;z-index:1;max-width:760px}
-.h-eye{display:inline-flex;align-items:center;gap:14px;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:26px;animation:fu .7s ease both}
-.h-eye::before{content:'';width:30px;height:1px;background:var(--gold);opacity:.6}
-.h-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,10vw,10rem);font-weight:300;line-height:.9;letter-spacing:-1px;animation:fu .8s ease .1s both}
-.h-h1 strong{font-weight:600;font-style:italic;color:var(--gold)}
-.h-h1 .ol{-webkit-text-stroke:1px rgba(245,240,232,.35);color:transparent}
-.h-sub{margin-top:26px;max-width:430px;font-size:.93rem;line-height:1.85;color:var(--w2);animation:fu .8s ease .2s both}
-.h-act{display:flex;gap:20px;align-items:center;margin-top:42px;animation:fu .8s ease .3s both}
-.btn-g{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.73rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:15px 40px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .25s,transform .2s,box-shadow .25s}
-.btn-g:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 12px 36px rgba(201,168,76,.28)}
-.btn-l{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--w2);border-bottom:1px solid rgba(245,240,232,.18);padding-bottom:2px;transition:color .2s,border-color .2s}
-.btn-l:hover{color:var(--gold);border-color:var(--gold)}
-.h-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:58px;position:relative;z-index:1;animation:fu .8s ease .45s both}
-.s-pill{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk);border:1px solid var(--border);padding:8px 20px;transition:color .2s,border-color .2s,background .2s}
-.s-pill:hover{color:var(--gold);border-color:var(--gold);background:var(--gold-glow)}
-.h-badge{position:absolute;right:9%;bottom:10%;z-index:2;width:126px;height:126px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;animation:spin 20s linear infinite;opacity:.6}
-.h-badge-t{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-align:center;line-height:1.7}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.scrl{position:absolute;bottom:34px;left:56px;z-index:2;display:flex;align-items:center;gap:14px;animation:fu 1s ease .6s both}
-.scrl-line{width:46px;height:1px;background:var(--gold);opacity:.35}
-.scrl-t{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--w2)}
+/* ── HERO ────────────────────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px;overflow:hidden}
+.h-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 55% 65% at 74% 44%,rgba(139,74,0,.13) 0%,transparent 55%),radial-gradient(ellipse 30% 40% at 18% 70%,rgba(200,134,10,.06) 0%,transparent 50%),var(--k)}
+.h-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at center,rgba(200,134,10,.055) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 68% 68% at 72% 40%,black,transparent)}
+.h-shard{position:absolute;right:-6%;top:-20%;width:48%;height:150%;z-index:1;background:var(--k2);transform:skewX(-6deg);border-left:1px solid var(--bg)}
+.h-shard::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 26px,rgba(200,134,10,.03) 26px,rgba(200,134,10,.03) 27px)}
+.h-mosaic{position:absolute;right:0;top:0;width:46%;height:100%;z-index:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;overflow:hidden}
+.h-mosaic::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(to right,var(--k) 0%,rgba(8,6,8,.65) 28%,rgba(8,6,8,.1) 100%)}
+.mc{overflow:hidden}
+.mc img{width:100%;height:100%;object-fit:cover;filter:brightness(.38) saturate(.6);animation:sz 14s ease-in-out infinite alternate}
+.mc:nth-child(2) img{animation-delay:2s}.mc:nth-child(3) img{animation-delay:1s}.mc:nth-child(4) img{animation-delay:3s}
+@keyframes sz{from{transform:scale(1)}to{transform:scale(1.1)}}
+.h-glow{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:480px;height:480px;border-radius:50%;z-index:2;background:radial-gradient(circle,rgba(200,134,10,.14) 0%,rgba(139,74,0,.05) 42%,transparent 70%);animation:pulse 4.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.7;transform:translateY(-50%) scale(1)}50%{opacity:1;transform:translateY(-50%) scale(1.06)}}
+.h-content{position:relative;z-index:4;max-width:600px}
+.heye{display:inline-flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--g2);margin-bottom:22px;animation:fu .7s ease both}
+.heye::before{content:'';width:26px;height:1px;background:var(--g2);opacity:.65}
+.hh1{font-family:'Cinzel',serif;font-size:clamp(3rem,7.5vw,8rem);font-weight:900;line-height:.88;letter-spacing:1px;animation:fu .8s ease .1s both}
+.hh1 .gd{color:var(--g1);text-shadow:0 0 36px rgba(232,168,32,.32)}
+.hh1 .ol{-webkit-text-stroke:1px rgba(245,230,200,.3);color:transparent}
+.hsub{margin-top:22px;max-width:450px;font-size:.94rem;line-height:1.88;font-weight:300;color:var(--cream2);animation:fu .8s ease .2s both}
+.hact{display:flex;gap:18px;align-items:center;margin-top:38px;flex-wrap:wrap;animation:fu .8s ease .3s both}
+.btn-g{display:inline-block;font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,var(--g3),var(--g2) 50%,var(--g1));color:var(--k);padding:15px 40px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:box-shadow .25s,transform .2s}
+.btn-g:hover{box-shadow:0 10px 30px rgba(232,168,32,.32);transform:translateY(-2px)}
+.btn-gh{display:inline-flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--cream2);border-bottom:1px solid rgba(245,230,200,.16);padding-bottom:3px;transition:color .2s,border-color .2s}
+.btn-gh:hover{color:var(--g1);border-color:var(--g1)}
+/* Size chart trigger in hero */
+.btn-size{display:inline-flex;align-items:center;gap:7px;font-family:'Cinzel',serif;font-size:.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g2);border:1px solid var(--bg);padding:9px 18px;background:none;cursor:none;transition:background .2s,color .2s,border-color .2s}
+.btn-size:hover{background:var(--glow);border-color:var(--g1);color:var(--g1)}
+.btn-size svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8}
+.hpills{display:flex;gap:10px;flex-wrap:wrap;margin-top:50px;position:relative;z-index:4;animation:fu .8s ease .44s both}
+.hpill{font-family:'Cinzel',serif;font-size:.56rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--g3);border:1px solid var(--bg);padding:7px 18px;transition:color .2s,border-color .2s,background .2s}
+.hpill:hover{color:var(--g1);border-color:var(--g1);background:var(--glow)}
+.scrl{position:absolute;bottom:30px;left:56px;z-index:5;display:flex;align-items:center;gap:12px;animation:fu 1s ease .7s both}
+.scrl-ln{width:42px;height:1px;background:var(--g2);opacity:.32}
+.scrl-t{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:4px;text-transform:uppercase;color:var(--cream2)}
 
-/* SECTION COMMON */
+/* ── SHARED ──────────────────────────────────── */
 .sw{padding:108px 56px}
-.s-eye{display:inline-flex;align-items:center;gap:14px;font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.s-eye::before{content:'';width:26px;height:1px;background:var(--gold);opacity:.6}
-.s-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4vw,4.2rem);font-weight:300;line-height:1.04;letter-spacing:-.5px}
-.s-ttl em{color:var(--gold);font-style:italic}
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.rv.vis{opacity:1;transform:translateY(0)}
+.seye{display:inline-flex;align-items:center;gap:14px;font-family:'Cinzel',serif;font-size:.58rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--g2);margin-bottom:11px}
+.seye::before{content:'';width:22px;height:1px;background:var(--g2);opacity:.62}
+.sttl{font-family:'Cinzel',serif;font-size:clamp(2.1rem,3.4vw,3.8rem);font-weight:700;line-height:1.04;letter-spacing:.5px}
+.sttl em{color:var(--g1);font-style:italic}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.v{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+.gdiv{height:1px;background:linear-gradient(to right,transparent,var(--g2) 28%,var(--g1) 50%,var(--g2) 72%,transparent);opacity:.28}
 
-/* CATEGORIES */
+/* ── CATEGORIES ──────────────────────────────── */
 .cats{background:var(--k2)}
-.cats-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;flex-wrap:wrap;gap:16px}
-.c-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:14px}
-.c-card{position:relative;overflow:hidden;cursor:none;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
-.c-card:hover{transform:translateY(-5px)}
-.c-card:first-child{min-height:380px}
-.c-card:not(:first-child){aspect-ratio:4/5}
-.c-svgbg{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;opacity:.06;transition:opacity .4s}
-.c-card:hover .c-svgbg{opacity:.13}
-.c-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(6,6,10,.95) 0%,rgba(6,6,10,.15) 60%,transparent 100%);transition:background .4s}
-.c-card:hover .c-ov{background:linear-gradient(to top,rgba(6,6,10,.98) 0%,rgba(6,6,10,.45) 60%,rgba(201,168,76,.04) 100%)}
-.c-topline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);z-index:3;transform:scaleX(0);transform-origin:left;transition:transform .5s}
-.c-card:hover .c-topline{transform:scaleX(1)}
-.c-body{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:26px}
-.c-ico{font-size:2.4rem;margin-bottom:10px;display:block}
-.c-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;letter-spacing:1px;color:var(--w);transition:color .3s}
-.c-card:hover .c-name{color:var(--gold)}
-.c-desc{font-size:.78rem;color:var(--w2);margin-top:6px;line-height:1.6;max-height:0;overflow:hidden;transition:max-height .4s,opacity .4s;opacity:0}
-.c-card:hover .c-desc{max-height:56px;opacity:1}
-.c-lnk{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:12px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
-.c-card:hover .c-lnk{opacity:1;transform:translateY(0)}
-.cf{background:linear-gradient(155deg,#08101a,#0d1f35)}
-.cc{background:linear-gradient(155deg,#0a150a,#0c2410)}
-.cr{background:linear-gradient(155deg,#180c04,#281408)}
-.cb{background:linear-gradient(155deg,#0c0818,#16062c)}
+.chd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:14px}
+.cgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:14px}
+.cc{position:relative;overflow:hidden;cursor:none;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
+.cc:hover{transform:translateY(-6px)}
+.cc:first-child{min-height:400px}
+.cc:not(:first-child){aspect-ratio:4/5}
+.cc-img{position:absolute;inset:0;z-index:0}
+.cc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+.cc:hover .cc-img img{transform:scale(1.07);filter:brightness(.6) saturate(1.1)}
+.cc-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,6,8,.97) 0%,rgba(8,6,8,.1) 52%,transparent 100%);transition:background .4s}
+.cc:hover .cc-ov{background:linear-gradient(to top,rgba(8,6,8,1) 0%,rgba(8,6,8,.55) 52%,rgba(139,74,0,.07) 100%)}
+.cc-tl{position:absolute;top:0;left:0;right:0;height:2px;z-index:3;background:linear-gradient(to right,var(--g3),var(--g1),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.cc:hover .cc-tl{transform:scaleX(1)}
+.cc-body{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:24px}
+.cc-ico{font-size:2.2rem;margin-bottom:8px;display:block}
+.cc-name{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;letter-spacing:2px;color:var(--cream);transition:color .3s}
+.cc:hover .cc-name{color:var(--g1)}
+.cc-desc{font-size:.76rem;color:var(--cream2);margin-top:5px;line-height:1.65;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s,opacity .4s}
+.cc:hover .cc-desc{max-height:58px;opacity:1}
+.cc-lnk{display:inline-flex;align-items:center;gap:7px;font-family:'Cinzel',serif;font-size:.56rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g1);margin-top:11px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.cc:hover .cc-lnk{opacity:1;transform:translateY(0)}
 
-/* PRODUCTS */
+/* ── PRODUCTS ────────────────────────────────── */
 #products{background:var(--k)}
-.p-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:46px}
-.f-row{display:flex;gap:6px;flex-wrap:wrap}
-.fb{font-family:'Barlow Condensed',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:none;border:1px solid var(--borderf);color:var(--w2);padding:9px 20px;transition:all .2s}
-.fb:hover{border-color:var(--border);color:var(--w)}
-.fb.on{background:var(--gold);border-color:var(--gold);color:var(--k)}
-.p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.p-card{background:var(--k3);position:relative;overflow:hidden;cursor:none;transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s}
-.p-card:hover{transform:translateY(-8px);box-shadow:0 24px 56px rgba(0,0,0,.5),0 0 0 1px var(--border)}
-.p-img{aspect-ratio:1;background:var(--k4);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.p-img svg{width:55%;height:55%;opacity:.22;transition:opacity .35s,transform .35s}
-.p-card:hover .p-img svg{opacity:.42;transform:scale(1.07)}
-.p-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06),transparent 60%);opacity:0;transition:opacity .35s}
-.p-card:hover .p-img::after{opacity:1}
-.p-tag{position:absolute;top:12px;left:12px;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(6,6,10,.88);border:1px solid var(--border);padding:4px 11px;backdrop-filter:blur(8px)}
-.p-body{padding:17px 19px 20px}
-.p-name{font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:700;letter-spacing:.5px;color:var(--w);line-height:1.3;margin-bottom:13px}
-.p-foot{display:flex;align-items:center;justify-content:space-between}
-.p-price{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--gold)}
-.p-add{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;background:transparent;color:var(--gold);border:1px solid var(--border);padding:8px 15px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:background .2s,color .2s,border-color .2s}
-.p-add:hover,.p-add.added{background:var(--gold);color:var(--k);border-color:var(--gold)}
-.p-bar{position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .5s ease}
-.p-card:hover .p-bar{width:100%}
+.phd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;margin-bottom:44px}
+.p-top-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.size-link{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:.56rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g2);border-bottom:1px dashed rgba(200,134,10,.4);padding-bottom:2px;background:none;transition:color .2s,border-color .2s;cursor:none}
+.size-link:hover{color:var(--g1);border-color:var(--g1)}
+.size-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8}
+.frow{display:flex;gap:6px;flex-wrap:wrap}
+.fb{font-family:'Cinzel',serif;font-size:.56rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;background:none;border:1px solid var(--bf);color:var(--cream2);padding:9px 17px;transition:all .2s}
+.fb:hover{border-color:var(--bg);color:var(--cream)}
+.fb.on{background:linear-gradient(135deg,var(--g3),var(--g2));border-color:var(--g2);color:var(--k)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pc{background:var(--k3);position:relative;overflow:hidden;cursor:none;border:1px solid var(--bf);transition:transform .35s cubic-bezier(.25,.8,.25,1),box-shadow .35s}
+.pc:hover{transform:translateY(-8px);box-shadow:0 22px 56px rgba(0,0,0,.55),0 0 0 1px var(--bg)}
+.pimg{aspect-ratio:1;position:relative;overflow:hidden;background:var(--k4)}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s}
+.pc:hover .pimg img{transform:scale(1.08);filter:brightness(.75)}
+.pimg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,134,10,.09),transparent 55%);opacity:0;transition:opacity .35s}
+.pc:hover .pimg::after{opacity:1}
+.pbadge{position:absolute;top:11px;left:11px;z-index:2;font-family:'Cinzel',serif;font-size:.52rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g1);background:rgba(8,6,8,.9);border:1px solid var(--bg);padding:4px 10px;backdrop-filter:blur(6px)}
+.pbody{padding:16px 18px 20px}
+.pname{font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;letter-spacing:.5px;color:var(--cream);line-height:1.35;margin-bottom:10px}
+.p-actions{display:flex;align-items:center;gap:8px;margin-top:12px}
+.pbtn{flex:1;font-family:'Cinzel',serif;font-size:.56rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--g2);border:1px solid var(--bg);padding:9px 10px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:background .2s,color .2s,border-color .2s}
+.pbtn:hover,.pbtn.added{background:linear-gradient(135deg,var(--g3),var(--g2));color:var(--k);border-color:var(--g2)}
+/* per-card size chart button */
+.psize{font-family:'Cinzel',serif;font-size:.52rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;background:none;border:1px solid var(--bf);color:var(--cream2);padding:9px 10px;white-space:nowrap;transition:color .2s,border-color .2s}
+.psize:hover{color:var(--g1);border-color:var(--bg)}
+.pbar{position:absolute;bottom:0;left:0;height:2px;width:0;background:linear-gradient(to right,var(--g3),var(--g1));transition:width .5s ease}
+.pc:hover .pbar{width:100%}
 
-/* ABOUT */
+/* ── ABOUT ───────────────────────────────────── */
 .about{background:var(--k2)}
-.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
-.ab-vis{position:relative}
-.ab-frame{position:relative;aspect-ratio:3/4;background:var(--k3);overflow:hidden}
-.ab-frame-in{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#0d1020,#0a1a0a,#120d08)}
-.ab-frame-in svg{width:68%;height:68%;opacity:.18}
-.ab-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(6,6,10,.92) 100%);z-index:1}
-.ab-border{position:absolute;top:18px;left:18px;right:-18px;bottom:-18px;border:1px solid var(--border);z-index:-1}
-.ab-tag{position:absolute;bottom:26px;left:26px;z-index:3;font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:600;font-style:italic;color:var(--gold);line-height:1.1}
-.ab-txt p{font-size:.93rem;line-height:1.85;color:var(--w2);margin-bottom:16px}
-.ab-txt .s-ttl{margin-bottom:22px}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
-.pillar{background:var(--k3);border:1px solid var(--borderf);padding:18px;transition:border-color .3s}
-.pillar:hover{border-color:var(--border)}
-.pillar-ico{font-size:1.3rem;margin-bottom:7px}
-.pillar-n{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
-.pillar-d{font-size:.8rem;color:var(--w2);line-height:1.6}
-.ab-stats{display:flex;gap:32px;margin-top:32px;padding-top:32px;border-top:1px solid var(--borderf)}
-.ast-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1}
-.ast-l{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--w2);margin-top:4px}
+.abgrid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+.abvis{position:relative}
+.abframe{position:relative;aspect-ratio:3/4;overflow:hidden;border:1px solid rgba(200,134,10,.2)}
+.abframe .bg-photo{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.85)}
+.abframe::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(8,6,8,.05) 28%,rgba(8,6,8,.97) 100%)}
+.abframe::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(139,74,0,.1),transparent 55%)}
+/* Large gold G text overlay — no logo image */
+.ab-g-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);z-index:3;font-family:'Cinzel',serif;font-size:14rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(200,134,10,.25);line-height:1;pointer-events:none;user-select:none}
+.abquote{position:absolute;bottom:26px;left:26px;z-index:4;font-family:'Cinzel',serif;font-size:1.55rem;font-weight:700;font-style:italic;color:var(--g1);line-height:1.15;text-shadow:0 0 22px rgba(232,168,32,.3)}
+.abborder{position:absolute;top:18px;left:18px;right:-18px;bottom:-18px;border:1px solid var(--bg);z-index:-1}
+.abtxt p{font-size:.92rem;line-height:1.9;color:var(--cream2);margin-bottom:15px}
+.abtxt .sttl{margin-bottom:20px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:30px}
+.pillar{background:var(--k3);border:1px solid var(--bf);padding:17px;transition:border-color .3s,background .3s}
+.pillar:hover{border-color:var(--bg);background:var(--k4)}
+.pillar-ico{font-size:1.2rem;margin-bottom:5px}
+.pillar-n{font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g1);margin-bottom:3px}
+.pillar-d{font-size:.78rem;color:var(--cream2);line-height:1.65}
+.abstats{display:flex;gap:28px;margin-top:28px;padding-top:28px;border-top:1px solid var(--bf)}
+.astn{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:700;color:var(--g1);line-height:1}
+.astl{font-family:'Cinzel',serif;font-size:.55rem;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:var(--cream2);margin-top:4px}
 
-/* TESTIMONIALS */
+/* ── TESTIMONIALS ────────────────────────────── */
 .testi{background:var(--k)}
-.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.t-card{background:var(--k3);border:1px solid var(--borderf);padding:30px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.t-card:hover{border-color:var(--border);transform:translateY(-4px)}
-.t-card::before{content:'\201C';position:absolute;top:-12px;right:20px;font-family:'Cormorant Garamond',serif;font-size:7.5rem;font-weight:600;color:rgba(201,168,76,.07);line-height:1;pointer-events:none}
-.t-stars{display:flex;gap:3px;margin-bottom:14px}
-.t-stars span{color:var(--gold);font-size:.72rem}
-.t-q{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:300;font-style:italic;line-height:1.75;color:var(--w);margin-bottom:18px}
-.t-auth{display:flex;align-items:center;gap:12px}
-.t-av{width:38px;height:38px;border-radius:50%;background:var(--k4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--gold)}
-.t-nm{font-family:'Barlow Condensed',sans-serif;font-size:.77rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--w)}
-.t-sp{font-size:.7rem;color:var(--gold-dk);letter-spacing:1px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.tc{background:var(--k3);border:1px solid var(--bf);padding:28px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.tc:hover{border-color:var(--bg);transform:translateY(-4px)}
+.tc::before{content:'\201C';position:absolute;top:-14px;right:18px;font-family:'Cinzel',serif;font-size:7rem;font-weight:900;color:rgba(200,134,10,.07);line-height:1;pointer-events:none}
+.tstars{display:flex;gap:3px;margin-bottom:12px}
+.tstars span{color:var(--g1);font-size:.7rem}
+.tq{font-family:'Raleway',sans-serif;font-size:.92rem;font-weight:300;font-style:italic;line-height:1.8;color:var(--cream);margin-bottom:17px}
+.tauth{display:flex;align-items:center;gap:11px}
+.tav{width:36px;height:36px;border-radius:50%;background:var(--k4);border:1px solid var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;color:var(--g1)}
+.tnm{font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cream)}
+.tsp{font-size:.68rem;color:var(--g3);letter-spacing:1px;margin-top:2px}
 
-/* CONTACT */
+/* ── CONTACT ─────────────────────────────────── */
 #contact{background:var(--k2)}
-.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
-.ct-txt p{font-size:.93rem;line-height:1.85;color:var(--w2);margin:18px 0 34px;max-width:400px}
-.ct-dets{display:flex;flex-direction:column;gap:14px}
-.ct-row{display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid var(--borderf);transition:border-color .3s}
-.ct-row:hover{border-color:var(--border)}
-.ct-ico{font-size:1rem;width:22px;text-align:center}
-.ct-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk)}
-.ct-val{font-size:.88rem;color:var(--w);margin-top:2px}
-.ct-form{background:var(--k3);padding:38px;border:1px solid var(--borderf)}
-.ct-form-ttl{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;color:var(--w);margin-bottom:26px}
-.f2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
-.fg{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
-.fg label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk)}
-.fg input,.fg textarea,.fg select{background:var(--k4);border:1px solid var(--borderf);color:var(--w);padding:11px 14px;font-family:'Barlow',sans-serif;font-size:.86rem;font-weight:300;outline:none;transition:border-color .2s;resize:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold)}
-.fg textarea{min-height:96px}
+.ctgrid{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
+.cttxt p{font-size:.92rem;line-height:1.9;color:var(--cream2);margin:16px 0 30px;max-width:400px}
+.ctdets{display:flex;flex-direction:column;gap:11px}
+.ctrow{display:flex;align-items:center;gap:16px;padding:13px 17px;border:1px solid var(--bf);transition:border-color .3s}
+.ctrow:hover{border-color:var(--bg)}
+.ctico{font-size:.95rem;width:21px;text-align:center}
+.ctlbl{font-family:'Cinzel',serif;font-size:.52rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g3)}
+.ctval{font-size:.86rem;color:var(--cream);margin-top:2px}
+.ctform{background:var(--k3);padding:34px;border:1px solid var(--bf)}
+.ctfttl{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:600;color:var(--cream);margin-bottom:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}
+.fg label{font-family:'Cinzel',serif;font-size:.52rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--g3)}
+.fg input,.fg textarea,.fg select{background:var(--k4);border:1px solid var(--bf);color:var(--cream);padding:10px 13px;font-family:'Raleway',sans-serif;font-size:.85rem;font-weight:300;outline:none;transition:border-color .2s;resize:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--g2)}
+.fg textarea{min-height:92px}
 .fg select option{background:var(--k3)}
-.f-sub{width:100%;margin-top:4px;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:var(--gold);color:var(--k);padding:15px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:background .2s,transform .2s}
-.f-sub:hover{background:var(--gold-lt);transform:translateY(-1px)}
-.f-note{font-size:.72rem;color:var(--w2);margin-top:9px;text-align:center;opacity:.45}
+.fsub{width:100%;margin-top:4px;font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,var(--g3),var(--g2) 50%,var(--g1));color:var(--k);padding:14px;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:box-shadow .2s,transform .2s}
+.fsub:hover{box-shadow:0 8px 26px rgba(232,168,32,.28);transform:translateY(-1px)}
+.fnote{font-size:.7rem;color:var(--cream2);margin-top:8px;text-align:center;opacity:.4}
 
-/* FOOTER */
-footer{background:var(--k);border-top:1px solid var(--borderf);padding:56px}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.ft-logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
-.ft-logo em{color:var(--gold);font-style:normal}
-.ft-brand p{font-size:.83rem;line-height:1.75;color:var(--w2);max-width:255px}
-.ft-col-t{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
-.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.ft-col ul a{font-size:.83rem;color:var(--w2);transition:color .2s}
-.ft-col ul a:hover{color:var(--gold)}
-.ft-btm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:30px;border-top:1px solid var(--borderf)}
-.ft-copy{font-size:.76rem;color:var(--w2);opacity:.45}
-.ft-soc{display:flex;gap:12px}
-.ft-soc a{width:34px;height:34px;border:1px solid var(--borderf);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--w2);transition:border-color .2s,color .2s}
-.ft-soc a:hover{border-color:var(--gold);color:var(--gold)}
+/* ── FOOTER ──────────────────────────────────── */
+footer{background:var(--k);border-top:1px solid var(--bg);padding:54px}
+.fttop{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:42px;margin-bottom:42px}
+.ftbl{display:flex;align-items:center;gap:13px;margin-bottom:13px}
+.ftbl img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 0 9px rgba(200,134,10,.28))}
+.ftlt{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:4px;text-transform:uppercase}
+.ftlt span{display:block;font-size:.46rem;letter-spacing:6px;color:var(--g2);font-weight:400;margin-top:2px}
+.ftbrand p{font-size:.81rem;line-height:1.8;color:var(--cream2);max-width:248px}
+.ftct{font-family:'Cinzel',serif;font-size:.56rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--g1);margin-bottom:14px}
+.ftcol ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ftcol ul a{font-size:.8rem;color:var(--cream2);transition:color .2s}
+.ftcol ul a:hover{color:var(--g1)}
+/* Size chart in footer */
+.ftcol ul button.sz-footer{font-size:.8rem;color:var(--cream2);background:none;font-family:'Raleway',sans-serif;font-weight:300;letter-spacing:0;text-transform:none;padding:0;cursor:none;transition:color .2s;text-align:left}
+.ftcol ul button.sz-footer:hover{color:var(--g1)}
+.ftbtm{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;border-top:1px solid var(--bf)}
+.ftcopy{font-size:.73rem;color:var(--cream2);opacity:.4}
+.ftsoc{display:flex;gap:10px}
+.ftsoc a{width:32px;height:32px;border:1px solid var(--bf);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.62rem;color:var(--cream2);transition:border-color .2s,color .2s}
+.ftsoc a:hover{border-color:var(--g1);color:var(--g1)}
 
-@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+/* ════════════════════════════════════════════════
+   UK SIZE CHART POPUP
+════════════════════════════════════════════════ */
+.modal-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:9998;
+  background:rgba(6,4,6,.88);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--k2);
+  border:1px solid var(--bg);
+  width:100%;max-width:820px;
+  max-height:90vh;overflow-y:auto;
+  position:relative;
+  animation:modalIn .35s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(32px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+/* Gold top accent */
+.modal::before{content:'';display:block;height:3px;background:linear-gradient(to right,var(--g3),var(--g2) 30%,var(--g1) 50%,var(--g2) 70%,var(--g3))}
+.modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 32px 0;
+}
+.modal-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:700;letter-spacing:2px;color:var(--cream)}
+.modal-title span{color:var(--g1)}
+.modal-close{
+  width:36px;height:36px;border:1px solid var(--bf);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;color:var(--cream2);background:none;cursor:none;
+  transition:border-color .2s,color .2s;
+}
+.modal-close:hover{border-color:var(--g1);color:var(--g1)}
+.modal-body{padding:22px 32px 32px}
+/* Sport tabs */
+.sz-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.sz-tab{
+  font-family:'Cinzel',serif;font-size:.56rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  background:none;border:1px solid var(--bf);color:var(--cream2);
+  padding:8px 16px;transition:all .2s;cursor:none;
+}
+.sz-tab:hover{border-color:var(--bg);color:var(--cream)}
+.sz-tab.on{background:linear-gradient(135deg,var(--g3),var(--g2));border-color:var(--g2);color:var(--k)}
+/* Table panels */
+.sz-panel{display:none}.sz-panel.on{display:block}
+.sz-note{font-size:.8rem;color:var(--cream2);line-height:1.7;margin-bottom:18px;padding:12px 16px;border-left:2px solid var(--g2);background:rgba(200,134,10,.05)}
+.sz-section-title{font-family:'Cinzel',serif;font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g1);margin:22px 0 10px}
+.sz-section-title:first-of-type{margin-top:0}
+/* Tables */
+.sz-table-wrap{overflow-x:auto;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead tr{background:linear-gradient(135deg,var(--g4),var(--g3))}
+thead th{font-family:'Cinzel',serif;font-size:.58rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cream);padding:11px 14px;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--bf);transition:background .15s}
+tbody tr:hover{background:rgba(200,134,10,.05)}
+tbody td{padding:10px 14px;color:var(--cream2);white-space:nowrap}
+tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--cream);font-size:.8rem}
+/* Measurement guide */
+.how-to{margin-top:24px;padding:18px;background:var(--k3);border:1px solid var(--bf)}
+.how-to-title{font-family:'Cinzel',serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g1);margin-bottom:12px}
+.how-to-items{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.how-to-item{font-size:.8rem;color:var(--cream2);line-height:1.6;display:flex;gap:8px}
+.how-to-item::before{content:'⟡';color:var(--g2);font-size:.65rem;margin-top:2px;flex-shrink:0}
+/* Scrollbar inside modal */
+.modal::-webkit-scrollbar{width:2px}
+.modal::-webkit-scrollbar-track{background:var(--k3)}
+.modal::-webkit-scrollbar-thumb{background:var(--g2)}
 
-/* RESPONSIVE */
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ──────────────────────────────── */
 @media(max-width:1100px){
-  .c-grid{grid-template-columns:1fr 1fr}.c-card:first-child{grid-row:auto;min-height:260px;aspect-ratio:unset}
-  .ft-top{grid-template-columns:1fr 1fr}
+  .cgrid{grid-template-columns:1fr 1fr}.cc:first-child{min-height:240px;aspect-ratio:unset}
+  .fttop{grid-template-columns:1fr 1fr}
 }
 @media(max-width:900px){
-  .p-grid{grid-template-columns:repeat(2,1fr)}
-  .ab-grid{grid-template-columns:1fr;gap:48px}.ab-vis{display:none}
-  .ct-grid{grid-template-columns:1fr;gap:48px}
-  .t-grid{grid-template-columns:1fr 1fr}
+  .h-mosaic{opacity:.3}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .abgrid{grid-template-columns:1fr;gap:44px}.abvis{display:none}
+  .ctgrid{grid-template-columns:1fr;gap:44px}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .how-to-items{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  nav{padding:0 24px}.n-links,.n-btn{display:none}.hbg{display:flex}
-  .hero{padding:90px 24px 60px}.sw{padding:70px 24px}
-  .c-grid{grid-template-columns:1fr 1fr}
-  .p-grid{grid-template-columns:repeat(2,1fr);gap:11px}
+  nav{padding:0 22px}.nm,.ncta{display:none}.hbg{display:flex}
+  .hero{padding:88px 22px 60px}.sw{padding:68px 22px}
+  .h-mosaic{display:none}
+  .cgrid{grid-template-columns:1fr 1fr}
+  .pgrid{grid-template-columns:repeat(2,1fr);gap:10px}
   .pillars{grid-template-columns:1fr}.f2{grid-template-columns:1fr}
-  .ft-top{grid-template-columns:1fr;gap:30px}
-  footer{padding:40px 24px}.ft-btm{flex-direction:column;align-items:flex-start}
-  .scrl{left:24px}.h-badge{display:none}
+  .fttop{grid-template-columns:1fr;gap:26px}
+  footer{padding:38px 22px}.ftbtm{flex-direction:column;align-items:flex-start}
+  .scrl{left:22px}
+  .modal-body{padding:16px 20px 24px}.modal-head{padding:20px 20px 0}
 }
-@media(max-width:520px){
-  .t-grid{grid-template-columns:1fr}
-  .h-h1{font-size:clamp(3.4rem,13vw,5.5rem)}
-  .ab-stats{gap:18px}
+@media(max-width:500px){
+  .tgrid{grid-template-columns:1fr}
+  .hh1{font-size:clamp(2.8rem,12vw,4rem)}
+  .abstats{gap:14px}
+  .p-actions{flex-direction:column}
+  .pbtn,.psize{width:100%}
 }
 </style>
 </head>
 <body>
 
-<div id="cDot"></div>
-<div id="cRing"></div>
+<div id="cD"></div><div id="cR"></div>
 
-<!-- NAV -->
+<!-- ════ NAV ════ -->
 <nav id="nav">
-  <a href="#" class="n-logo">GLAMMY <em>SPORTS</em></a>
-  <ul class="n-links">
+  <a href="#" class="nl">
+    <img src="Dragon_Logo_only_G.png" alt="Glammy Sports">
+    <div class="nlt">Glammy Sports<span>Premium Sportswear</span></div>
+  </a>
+  <ul class="nm">
     <li><a href="#sports">Sports</a></li>
     <li><a href="#products">Collection</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="n-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+  <button class="ncta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob" id="mob">
@@ -273,77 +375,97 @@ footer{background:var(--k);border-top:1px solid var(--borderf);padding:56px}
   <a href="#contact"  onclick="cm()">Contact</a>
 </div>
 
-<!-- TICKER -->
+<!-- ════ TICKER ════ -->
 <div class="tkr">
   <div class="tkr-t">
     <span>Football</span><span>Cricket</span><span>Rugby</span><span>Badminton</span>
-    <span>Performance Wear</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
+    <span>Forged for Performance</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
     <span>Football</span><span>Cricket</span><span>Rugby</span><span>Badminton</span>
-    <span>Performance Wear</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
+    <span>Forged for Performance</span><span>Premium Quality</span><span>New Season 2026</span><span>Train Bold</span>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ════ HERO ════ -->
 <section class="hero">
   <div class="h-bg"></div>
-  <div class="h-slash"></div>
+  <div class="h-mosaic">
+    <div class="mc"><img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=70&fit=crop" alt="Football"></div>
+    <div class="mc"><img src="https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=70&fit=crop" alt="Cricket"></div>
+    <div class="mc"><img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=70&fit=crop" alt="Rugby"></div>
+    <div class="mc"><img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=70&fit=crop" alt="Badminton"></div>
+  </div>
+  <div class="h-glow"></div>
+  <div class="h-shard"></div>
   <div class="h-content">
-    <div class="h-eye">Premium Sportswear — Est. 2026</div>
-    <h1 class="h-h1">TRAIN<br><strong>BOLD.</strong><br><span class="ol">LOOK POWER</span>FUL.</h1>
-    <p class="h-sub">Premium sportswear engineered for athletes who refuse to settle — built for the pitch, the crease, the court and the field.</p>
-    <div class="h-act">
+    <div class="heye">Premium Sportswear — Est. 2026</div>
+    <h1 class="hh1">TRAIN<br><span class="gd">BOLD.</span><br><span class="ol">LOOK</span> <span class="gd">POWERFUL.</span></h1>
+    <p class="hsub">Forged for athletes who refuse to settle — premium sportswear built for the pitch, the crease, the court and the field.</p>
+    <div class="hact">
       <a href="#products" class="btn-g">Shop Collection</a>
-      <a href="#about" class="btn-l">Our Story →</a>
+      <a href="#about" class="btn-gh">Our Story →</a>
+      <button class="btn-size" onclick="openModal()">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        UK Size Guide
+      </button>
     </div>
   </div>
-  <div class="h-pills">
-    <div class="s-pill">⚽ Football</div>
-    <div class="s-pill">🏏 Cricket</div>
-    <div class="s-pill">🏉 Rugby</div>
-    <div class="s-pill">🏸 Badminton</div>
+  <div class="hpills">
+    <div class="hpill">⚽ Football</div>
+    <div class="hpill">🏏 Cricket</div>
+    <div class="hpill">🏉 Rugby</div>
+    <div class="hpill">🏸 Badminton</div>
   </div>
-  <div class="h-badge"><div class="h-badge-t">PREMIUM<br>QUALITY<br>✦<br>2026</div></div>
-  <div class="scrl"><div class="scrl-line"></div><span class="scrl-t">Scroll to explore</span></div>
+  <div class="scrl"><div class="scrl-ln"></div><span class="scrl-t">Scroll to Explore</span></div>
 </section>
 
-<!-- CATEGORIES -->
+<div class="gdiv"></div>
+
+<!-- ════ CATEGORIES ════ -->
 <section class="sw cats" id="sports">
-  <div class="cats-hd rv">
-    <div>
-      <div class="s-eye">Shop by Sport</div>
-      <h2 class="s-ttl">Our <em>Collections</em></h2>
-    </div>
-    <a href="#products" class="btn-l rv d1">View All →</a>
+  <div class="chd rv">
+    <div><div class="seye">Shop by Sport</div><h2 class="sttl">Our <em>Collections</em></h2></div>
+    <a href="#products" class="btn-gh rv d1">View All →</a>
   </div>
-  <div class="c-grid">
-    <div class="c-card cf rv" data-f="Football">
-      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="88" stroke="#C9A84C" stroke-width="2.5"/><polygon points="100,22 122,72 178,72 134,104 150,158 100,126 50,158 66,104 22,72 78,72" stroke="#C9A84C" stroke-width="2" fill="none"/></svg></div>
-      <div class="c-ov"></div><div class="c-topline"></div>
-      <div class="c-body"><span class="c-ico">⚽</span><div class="c-name">Football</div><div class="c-desc">Match-ready jerseys, shorts and training kits built for the beautiful game.</div><div class="c-lnk">Explore →</div></div>
+  <div class="cgrid">
+    <div class="cc rv" data-f="Football">
+      <div class="cc-img"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80&fit=crop" alt="Football" loading="lazy"></div>
+      <div class="cc-ov"></div><div class="cc-tl"></div>
+      <div class="cc-body"><span class="cc-ico">⚽</span><div class="cc-name">Football</div><div class="cc-desc">Match-ready jerseys, shorts and training kits built for the beautiful game.</div><div class="cc-lnk">Explore →</div></div>
     </div>
-    <div class="c-card cc rv d1" data-f="Cricket">
-      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><rect x="82" y="16" width="36" height="130" rx="6" stroke="#C9A84C" stroke-width="2.5"/><ellipse cx="100" cy="170" rx="52" ry="14" stroke="#C9A84C" stroke-width="2"/><line x1="64" y1="72" x2="136" y2="72" stroke="#C9A84C" stroke-width="1.5"/></svg></div>
-      <div class="c-ov"></div><div class="c-topline"></div>
-      <div class="c-body"><span class="c-ico">🏏</span><div class="c-name">Cricket</div><div class="c-desc">Test whites, training gear and performance cricket wear.</div><div class="c-lnk">Explore →</div></div>
+    <div class="cc rv d1" data-f="Cricket">
+      <div class="cc-img"><img src="https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=80&fit=crop" alt="Cricket" loading="lazy"></div>
+      <div class="cc-ov"></div><div class="cc-tl"></div>
+      <div class="cc-body"><span class="cc-ico">🏏</span><div class="cc-name">Cricket</div><div class="cc-desc">Test whites, training gear and performance cricket wear.</div><div class="cc-lnk">Explore →</div></div>
     </div>
-    <div class="c-card cr rv d2" data-f="Rugby">
-      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><ellipse cx="100" cy="100" rx="74" ry="46" stroke="#C9A84C" stroke-width="2.5"/><line x1="26" y1="100" x2="174" y2="100" stroke="#C9A84C" stroke-width="1.8"/><line x1="100" y1="54" x2="100" y2="146" stroke="#C9A84C" stroke-width="1.8"/></svg></div>
-      <div class="c-ov"></div><div class="c-topline"></div>
-      <div class="c-body"><span class="c-ico">🏉</span><div class="c-name">Rugby</div><div class="c-desc">Impact-engineered jerseys and training wear for the scrum and beyond.</div><div class="c-lnk">Explore →</div></div>
+    <div class="cc rv d2" data-f="Rugby">
+      <div class="cc-img"><img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80&fit=crop" alt="Rugby" loading="lazy"></div>
+      <div class="cc-ov"></div><div class="cc-tl"></div>
+      <div class="cc-body"><span class="cc-ico">🏉</span><div class="cc-name">Rugby</div><div class="cc-desc">Impact-engineered jerseys and training wear for the scrum.</div><div class="cc-lnk">Explore →</div></div>
     </div>
-    <div class="c-card cb rv d3" data-f="Badminton">
-      <div class="c-svgbg"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="52" r="32" stroke="#C9A84C" stroke-width="2.5"/><line x1="100" y1="84" x2="100" y2="186" stroke="#C9A84C" stroke-width="4"/><line x1="62" y1="84" x2="138" y2="84" stroke="#C9A84C" stroke-width="1.8"/><line x1="68" y1="108" x2="132" y2="108" stroke="#C9A84C" stroke-width="1.4" opacity=".5"/><line x1="76" y1="130" x2="124" y2="130" stroke="#C9A84C" stroke-width="1.2" opacity=".3"/></svg></div>
-      <div class="c-ov"></div><div class="c-topline"></div>
-      <div class="c-body"><span class="c-ico">🏸</span><div class="c-name">Badminton</div><div class="c-desc">Lightweight breathable court wear for speed and precision play.</div><div class="c-lnk">Explore →</div></div>
+    <div class="cc rv d3" data-f="Badminton">
+      <div class="cc-img"><img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80&fit=crop" alt="Badminton" loading="lazy"></div>
+      <div class="cc-ov"></div><div class="cc-tl"></div>
+      <div class="cc-body"><span class="cc-ico">🏸</span><div class="cc-name">Badminton</div><div class="cc-desc">Lightweight breathable court wear for speed and precision.</div><div class="cc-lnk">Explore →</div></div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<div class="gdiv"></div>
+
+<!-- ════ PRODUCTS ════ -->
 <section class="sw" id="products">
-  <div class="p-hd rv">
-    <div><div class="s-eye">Featured Collection</div><h2 class="s-ttl">Latest <em>Drops</em></h2></div>
-    <div class="f-row" id="fRow">
+  <div class="phd rv">
+    <div>
+      <div class="seye">Featured Collection</div>
+      <h2 class="sttl">Latest <em>Drops</em></h2>
+      <div class="p-top-row" style="margin-top:10px">
+        <button class="size-link" onclick="openModal()">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg>
+          UK Size Guide
+        </button>
+      </div>
+    </div>
+    <div class="frow" id="fRow">
       <button class="fb on" data-f="all">All</button>
       <button class="fb" data-f="Football">Football</button>
       <button class="fb" data-f="Cricket">Cricket</button>
@@ -351,182 +473,353 @@ footer{background:var(--k);border-top:1px solid var(--borderf);padding:56px}
       <button class="fb" data-f="Badminton">Badminton</button>
     </div>
   </div>
-  <div class="p-grid" id="pGrid"></div>
+  <div class="pgrid" id="pGrid"></div>
 </section>
 
-<!-- ABOUT -->
+<div class="gdiv"></div>
+
+<!-- ════ ABOUT ════ -->
 <section class="sw about" id="about">
-  <div class="ab-grid">
-    <div class="ab-vis rv">
-      <div class="ab-frame">
-        <div class="ab-frame-in">
-          <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="150" cy="145" r="85" stroke="#C9A84C" stroke-width="1.5" opacity=".55"/>
-            <circle cx="150" cy="145" r="56" stroke="#C9A84C" stroke-width="1" opacity=".28"/>
-            <line x1="150" y1="60" x2="150" y2="300" stroke="#C9A84C" stroke-width="1" opacity=".38"/>
-            <line x1="65" y1="145" x2="235" y2="145" stroke="#C9A84C" stroke-width="1" opacity=".38"/>
-            <polygon points="150,92 174,132 224,132 186,157 200,202 150,177 100,202 114,157 76,132 126,132" stroke="#C9A84C" stroke-width="1.5" fill="none" opacity=".45"/>
-            <circle cx="150" cy="318" r="18" stroke="#C9A84C" stroke-width="2" opacity=".65"/>
-            <line x1="150" y1="230" x2="150" y2="300" stroke="#C9A84C" stroke-width="2.5" opacity=".65"/>
-          </svg>
-        </div>
-        <div class="ab-tag">Born to<br>Perform</div>
+  <div class="abgrid">
+    <div class="abvis rv">
+      <div class="abframe">
+        <img class="bg-photo" src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=800&q=80&fit=crop" alt="Athlete">
+        <!-- Gold G letter — no logo image in body -->
+        <div class="ab-g-letter">G</div>
+        <div class="abquote">Forged for<br>Greatness</div>
       </div>
-      <div class="ab-border"></div>
+      <div class="abborder"></div>
     </div>
-    <div class="ab-txt">
-      <div class="s-eye rv">Our Story</div>
-      <h2 class="s-ttl rv">Built for <em>Athletes</em><br>Who Demand More</h2>
-      <p class="rv">Glammy Sports was born from a simple belief: that performance wear should be as powerful as the athletes who wear it. Every stitch, every fabric, every cut is made with purpose.</p>
-      <p class="rv d1">From grassroots football pitches to county cricket grounds, we design sportswear that moves with you — refusing to compromise between function and style.</p>
+    <div class="abtxt">
+      <div class="seye rv">Our Story</div>
+      <h2 class="sttl rv">Built for <em>Athletes</em><br>Who Demand More</h2>
+      <p class="rv">Glammy Sports was born from a simple belief — that performance wear should be as powerful as the athletes who wear it. Every stitch, every fabric, every cut is made with purpose.</p>
+      <p class="rv d1">From grassroots football pitches to county cricket grounds, we design sportswear that moves with you, refusing to compromise between function and style.</p>
       <div class="pillars rv d2">
         <div class="pillar"><div class="pillar-ico">⚡</div><div class="pillar-n">Performance</div><div class="pillar-d">Fabrics engineered for mobility and breathability.</div></div>
-        <div class="pillar"><div class="pillar-ico">✦</div><div class="pillar-n">Premium</div><div class="pillar-d">Gold-standard quality in every garment.</div></div>
-        <div class="pillar"><div class="pillar-ico">🎯</div><div class="pillar-n">Precision</div><div class="pillar-d">Sport-specific cuts for how athletes actually move.</div></div>
-        <div class="pillar"><div class="pillar-ico">🏆</div><div class="pillar-n">Style</div><div class="pillar-d">Look powerful on and off the field and court.</div></div>
+        <div class="pillar"><div class="pillar-ico">🔥</div><div class="pillar-n">Power</div><div class="pillar-d">Gold-standard quality forged into every garment.</div></div>
+        <div class="pillar"><div class="pillar-ico">🎯</div><div class="pillar-n">Precision</div><div class="pillar-d">Sport-specific cuts for how athletes truly move.</div></div>
+        <div class="pillar"><div class="pillar-ico">👑</div><div class="pillar-n">Prestige</div><div class="pillar-d">Look powerful on and off the field and court.</div></div>
       </div>
-      <div class="ab-stats rv d3">
-        <div><div class="ast-n">4+</div><div class="ast-l">Sports</div></div>
-        <div><div class="ast-n">100%</div><div class="ast-l">Performance</div></div>
-        <div><div class="ast-n">2026</div><div class="ast-l">Est.</div></div>
+      <div class="abstats rv d3">
+        <div><div class="astn">4+</div><div class="astl">Sports</div></div>
+        <div><div class="astn">100%</div><div class="astl">Performance</div></div>
+        <div><div class="astn">2026</div><div class="astl">Est.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<div class="gdiv"></div>
+
+<!-- ════ TESTIMONIALS ════ -->
 <section class="sw testi" id="reviews">
-  <div class="rv"><div class="s-eye">What Athletes Say</div><h2 class="s-ttl">Trusted by <em>Performers</em></h2></div>
-  <div class="t-grid">
-    <div class="t-card rv">
-      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="t-q">"The quality is unreal. Wore the football kit in a league match and it held up perfectly — comfortable, sharp, and genuinely premium."</p>
-      <div class="t-auth"><div class="t-av">JM</div><div><div class="t-nm">James M.</div><div class="t-sp">Football · 5-a-side</div></div></div>
-    </div>
-    <div class="t-card rv d1">
-      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="t-q">"Finally a brand that understands cricket players. The whites are crisp, the fit is spot on, and the fabric breathes beautifully on warm days."</p>
-      <div class="t-auth"><div class="t-av">PK</div><div><div class="t-nm">Priya K.</div><div class="t-sp">Cricket · Club Level</div></div></div>
-    </div>
-    <div class="t-card rv d2">
-      <div class="t-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="t-q">"The badminton polo is hands-down the best I've played in. Lightweight, moves with you and looks brilliant at the same time."</p>
-      <div class="t-auth"><div class="t-av">AL</div><div><div class="t-nm">Alex L.</div><div class="t-sp">Badminton · County</div></div></div>
-    </div>
+  <div class="rv"><div class="seye">What Athletes Say</div><h2 class="sttl">Trusted by <em>Performers</em></h2></div>
+  <div class="tgrid">
+    <div class="tc rv"><div class="tstars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tq">"The quality is unreal. Wore the football kit in a league match — comfortable, sharp, and genuinely premium. The dragon logo gets compliments every game."</p><div class="tauth"><div class="tav">JM</div><div><div class="tnm">James M.</div><div class="tsp">Football · 5-a-side</div></div></div></div>
+    <div class="tc rv d1"><div class="tstars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tq">"Finally a brand that understands cricket players. The whites are crisp, the fit is perfect, and the fabric breathes brilliantly in the summer heat."</p><div class="tauth"><div class="tav">PK</div><div><div class="tnm">Priya K.</div><div class="tsp">Cricket · Club Level</div></div></div></div>
+    <div class="tc rv d2"><div class="tstars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="tq">"The badminton polo is hands-down the best I've played in. Lightweight, moves with you, and looks absolutely brilliant."</p><div class="tauth"><div class="tav">AL</div><div><div class="tnm">Alex L.</div><div class="tsp">Badminton · County</div></div></div></div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<div class="gdiv"></div>
+
+<!-- ════ CONTACT ════ -->
 <section class="sw" id="contact">
-  <div class="ct-grid">
-    <div class="ct-txt">
-      <div class="s-eye rv">Get In Touch</div>
-      <h2 class="s-ttl rv">Let's <em>Talk</em><br>Sportswear</h2>
-      <p class="rv">Questions about our collection, sizing, or a bulk order enquiry? We'd love to hear from you — we respond within 24 hours.</p>
-      <div class="ct-dets rv d1">
-        <div class="ct-row"><div class="ct-ico">✉</div><div><div class="ct-lbl">Email</div><div class="ct-val">support@glammysports.com</div></div></div>
-        <div class="ct-row"><div class="ct-ico">🌐</div><div><div class="ct-lbl">Website</div><div class="ct-val">glammysports.com</div></div></div>
-        <div class="ct-row"><div class="ct-ico">📦</div><div><div class="ct-lbl">Shipping</div><div class="ct-val">Worldwide delivery available</div></div></div>
+  <div class="ctgrid">
+    <div class="cttxt">
+      <div class="seye rv">Get In Touch</div>
+      <h2 class="sttl rv">Let's <em>Talk</em><br>Sportswear</h2>
+      <p class="rv">Questions about our collection, sizing, or a bulk order? We'd love to hear from you — we respond within 24 hours.</p>
+      <div class="ctdets rv d1">
+        <div class="ctrow"><div class="ctico">✉</div><div><div class="ctlbl">Email</div><div class="ctval">support@glammysports.com</div></div></div>
+        <div class="ctrow"><div class="ctico">🌐</div><div><div class="ctlbl">Website</div><div class="ctval">glammysports.com</div></div></div>
+        <div class="ctrow"><div class="ctico">📦</div><div><div class="ctlbl">Shipping</div><div class="ctval">Worldwide delivery available</div></div></div>
       </div>
     </div>
-    <div class="ct-form rv d2">
-      <div class="ct-form-ttl">Send a Message</div>
+    <div class="ctform rv d2">
+      <div class="ctfttl">Send a Message</div>
       <div class="f2">
         <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
         <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
       </div>
       <div class="fg"><label>Email</label><input type="email" placeholder="john@example.com"></div>
-      <div class="fg"><label>Sport Interest</label>
-        <select><option value="">Select...</option><option>Football</option><option>Cricket</option><option>Rugby</option><option>Badminton</option><option>General Enquiry</option></select>
-      </div>
+      <div class="fg"><label>Sport Interest</label><select><option value="">Select a sport...</option><option>Football</option><option>Cricket</option><option>Rugby</option><option>Badminton</option><option>General Enquiry</option></select></div>
       <div class="fg"><label>Message</label><textarea placeholder="Tell us about your enquiry..."></textarea></div>
-      <button class="f-sub" onclick="fSub(this)">Send Message</button>
-      <p class="f-note">We'll respond within 24 hours.</p>
+      <button class="fsub" onclick="fSub(this)">Send Message</button>
+      <p class="fnote">We'll get back to you within 24 hours.</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════ FOOTER ════ -->
 <footer>
-  <div class="ft-top">
-    <div class="ft-brand">
-      <div class="ft-logo">GLAMMY <em>SPORTS</em></div>
-      <p>Premium sportswear engineered for performance and designed for greatness. Built for athletes who refuse to settle.</p>
+  <div class="fttop">
+    <div class="ftbrand">
+      <div class="ftbl">
+        <img src="Dragon_Logo_only_G.png" alt="Glammy Sports">
+        <div class="ftlt">Glammy Sports<span>Premium Sportswear</span></div>
+      </div>
+      <p>Premium sportswear forged for performance and designed for greatness. Built for athletes who refuse to settle.</p>
     </div>
-    <div class="ft-col"><div class="ft-col-t">Collection</div><ul><li><a href="#products">Football</a></li><li><a href="#products">Cricket</a></li><li><a href="#products">Rugby</a></li><li><a href="#products">Badminton</a></li></ul></div>
-    <div class="ft-col"><div class="ft-col-t">Company</div><ul><li><a href="#about">About Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div class="ft-col"><div class="ft-col-t">Support</div><ul><li><a href="mailto:support@glammysports.com">Email Us</a></li><li><a href="#contact">Size Guide</a></li><li><a href="#contact">Returns</a></li></ul></div>
+    <div class="ftcol"><div class="ftct">Collection</div><ul><li><a href="#products">Football</a></li><li><a href="#products">Cricket</a></li><li><a href="#products">Rugby</a></li><li><a href="#products">Badminton</a></li></ul></div>
+    <div class="ftcol"><div class="ftct">Company</div><ul><li><a href="#about">About Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="ftcol">
+      <div class="ftct">Support</div>
+      <ul>
+        <li><a href="mailto:support@glammysports.com">Email Us</a></li>
+        <li><button class="sz-footer" onclick="openModal()">UK Size Guide</button></li>
+        <li><a href="#contact">Returns</a></li>
+        <li><a href="#contact">Delivery Info</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="ft-btm">
-    <div class="ft-copy">© 2026 Glammy Sports. All rights reserved.</div>
-    <div class="ft-soc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="Facebook">FB</a></div>
+  <div class="ftbtm">
+    <div class="ftcopy">© 2026 Glammy Sports. All rights reserved.</div>
+    <div class="ftsoc"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Twitter">TW</a><a href="#" aria-label="Facebook">FB</a></div>
   </div>
 </footer>
 
+<!-- ════════════════════════════════════════════
+     UK SIZE CHART MODAL
+════════════════════════════════════════════ -->
+<div class="modal-overlay" id="sizeModal" onclick="overlayClick(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-head">
+      <div class="modal-title">UK <span>Size Guide</span></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="sz-note">
+        All measurements are in centimetres (cm). For the best fit, measure yourself and compare to the size chart. If you're between sizes, we recommend sizing up.
+      </div>
+
+      <!-- Sport tabs -->
+      <div class="sz-tabs">
+        <button class="sz-tab on" data-tab="tops" onclick="szTab(this)">Tops &amp; Jerseys</button>
+        <button class="sz-tab" data-tab="bottoms" onclick="szTab(this)">Shorts &amp; Trousers</button>
+        <button class="sz-tab" data-tab="cricket" onclick="szTab(this)">Cricket Whites</button>
+        <button class="sz-tab" data-tab="womens" onclick="szTab(this)">Women's</button>
+      </div>
+
+      <!-- TOPS & JERSEYS -->
+      <div class="sz-panel on" id="tab-tops">
+        <div class="sz-section-title">Men's Tops, Jerseys &amp; Training Tops</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Chest (cm)</th><th>Waist (cm)</th><th>Hip (cm)</th><th>To Fit Height</th></tr></thead>
+            <tbody>
+              <tr><td>XS</td><td>84 – 88</td><td>70 – 74</td><td>88 – 92</td><td>163 – 168 cm</td></tr>
+              <tr><td>S</td><td>88 – 94</td><td>74 – 80</td><td>92 – 98</td><td>168 – 173 cm</td></tr>
+              <tr><td>M</td><td>94 – 100</td><td>80 – 86</td><td>98 – 104</td><td>173 – 178 cm</td></tr>
+              <tr><td>L</td><td>100 – 108</td><td>86 – 94</td><td>104 – 112</td><td>178 – 183 cm</td></tr>
+              <tr><td>XL</td><td>108 – 116</td><td>94 – 102</td><td>112 – 120</td><td>183 – 188 cm</td></tr>
+              <tr><td>2XL</td><td>116 – 124</td><td>102 – 110</td><td>120 – 128</td><td>188 – 193 cm</td></tr>
+              <tr><td>3XL</td><td>124 – 132</td><td>110 – 118</td><td>128 – 136</td><td>193 – 198 cm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="how-to">
+          <div class="how-to-title">How to Measure</div>
+          <div class="how-to-items">
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Chest:</strong> Measure around the fullest part of your chest, keeping the tape horizontal.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Waist:</strong> Measure around your natural waistline, at the narrowest point.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Hip:</strong> Measure around the fullest part of your hips and seat.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Height:</strong> Stand straight without shoes and measure from head to floor.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHORTS & TROUSERS -->
+      <div class="sz-panel" id="tab-bottoms">
+        <div class="sz-section-title">Men's Shorts &amp; Training Trousers</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Waist (cm)</th><th>Hip (cm)</th><th>Inside Leg (cm)</th><th>Approx. Waist (inches)</th></tr></thead>
+            <tbody>
+              <tr><td>XS</td><td>70 – 74</td><td>88 – 92</td><td>74 – 76</td><td>28"</td></tr>
+              <tr><td>S</td><td>74 – 80</td><td>92 – 98</td><td>76 – 78</td><td>30"</td></tr>
+              <tr><td>M</td><td>80 – 86</td><td>98 – 104</td><td>78 – 80</td><td>32"</td></tr>
+              <tr><td>L</td><td>86 – 94</td><td>104 – 112</td><td>80 – 82</td><td>34"</td></tr>
+              <tr><td>XL</td><td>94 – 102</td><td>112 – 120</td><td>82 – 84</td><td>36"</td></tr>
+              <tr><td>2XL</td><td>102 – 110</td><td>120 – 128</td><td>84 – 86</td><td>38" – 40"</td></tr>
+              <tr><td>3XL</td><td>110 – 118</td><td>128 – 136</td><td>86 – 88</td><td>42" – 44"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="how-to">
+          <div class="how-to-title">How to Measure</div>
+          <div class="how-to-items">
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Waist:</strong> Measure around your natural waist, keeping one finger between tape and body.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Inside Leg:</strong> Measure from the crotch to the floor along the inner leg.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Hip:</strong> Stand with feet together, measure around the fullest part of your hips.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Tip:</strong> Shorts are designed slightly longer — hem sits above the knee for all sizes.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRICKET WHITES -->
+      <div class="sz-panel" id="tab-cricket">
+        <div class="sz-section-title">Cricket Whites — Shirt</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Chest (cm)</th><th>Collar (cm)</th><th>Sleeve (cm)</th><th>Body Length (cm)</th></tr></thead>
+            <tbody>
+              <tr><td>S</td><td>88 – 94</td><td>37 – 38</td><td>62 – 63</td><td>73</td></tr>
+              <tr><td>M</td><td>94 – 100</td><td>39 – 40</td><td>63 – 64</td><td>75</td></tr>
+              <tr><td>L</td><td>100 – 108</td><td>41 – 42</td><td>64 – 66</td><td>77</td></tr>
+              <tr><td>XL</td><td>108 – 116</td><td>43 – 44</td><td>66 – 67</td><td>79</td></tr>
+              <tr><td>2XL</td><td>116 – 124</td><td>45 – 46</td><td>67 – 68</td><td>81</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sz-section-title" style="margin-top:24px">Cricket Whites — Trousers</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Waist (cm)</th><th>Inside Leg (cm)</th><th>Short Fit (cm)</th><th>Regular Fit (cm)</th></tr></thead>
+            <tbody>
+              <tr><td>28"</td><td>70 – 74</td><td>74</td><td>28"</td><td>30"</td></tr>
+              <tr><td>30"</td><td>74 – 80</td><td>76</td><td>28"</td><td>30"</td></tr>
+              <tr><td>32"</td><td>80 – 86</td><td>78</td><td>30"</td><td>32"</td></tr>
+              <tr><td>34"</td><td>86 – 92</td><td>80</td><td>30"</td><td>32"</td></tr>
+              <tr><td>36"</td><td>92 – 98</td><td>82</td><td>32"</td><td>34"</td></tr>
+              <tr><td>38"</td><td>98 – 106</td><td>83</td><td>32"</td><td>34"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="how-to" style="margin-top:18px">
+          <div class="how-to-title">Cricket Fit Notes</div>
+          <div class="how-to-items">
+            <div class="how-to-item"><span>Cricket whites are designed with a relaxed fit to allow full range of motion when batting and fielding.</span></div>
+            <div class="how-to-item"><span>If ordering for match play, consider sizing up one for extra comfort during long innings.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WOMEN'S -->
+      <div class="sz-panel" id="tab-womens">
+        <div class="sz-section-title">Women's Tops &amp; Jerseys</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Bust (cm)</th><th>Waist (cm)</th><th>Hip (cm)</th><th>To Fit Height</th></tr></thead>
+            <tbody>
+              <tr><td>6 (XS)</td><td>80 – 84</td><td>62 – 66</td><td>86 – 90</td><td>158 – 163 cm</td></tr>
+              <tr><td>8 (S)</td><td>84 – 88</td><td>66 – 70</td><td>90 – 94</td><td>160 – 165 cm</td></tr>
+              <tr><td>10 (S/M)</td><td>88 – 92</td><td>70 – 74</td><td>94 – 98</td><td>163 – 168 cm</td></tr>
+              <tr><td>12 (M)</td><td>92 – 96</td><td>74 – 78</td><td>98 – 102</td><td>165 – 170 cm</td></tr>
+              <tr><td>14 (L)</td><td>96 – 102</td><td>78 – 84</td><td>102 – 108</td><td>168 – 173 cm</td></tr>
+              <tr><td>16 (XL)</td><td>102 – 108</td><td>84 – 90</td><td>108 – 114</td><td>170 – 175 cm</td></tr>
+              <tr><td>18 (2XL)</td><td>108 – 116</td><td>90 – 98</td><td>114 – 122</td><td>172 – 177 cm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sz-section-title" style="margin-top:24px">Women's Shorts &amp; Skirts</div>
+        <div class="sz-table-wrap">
+          <table>
+            <thead><tr><th>UK Size</th><th>Waist (cm)</th><th>Hip (cm)</th><th>Inside Leg (cm)</th></tr></thead>
+            <tbody>
+              <tr><td>6</td><td>62 – 66</td><td>86 – 90</td><td>74</td></tr>
+              <tr><td>8</td><td>66 – 70</td><td>90 – 94</td><td>75</td></tr>
+              <tr><td>10</td><td>70 – 74</td><td>94 – 98</td><td>76</td></tr>
+              <tr><td>12</td><td>74 – 78</td><td>98 – 102</td><td>77</td></tr>
+              <tr><td>14</td><td>78 – 84</td><td>102 – 108</td><td>78</td></tr>
+              <tr><td>16</td><td>84 – 90</td><td>108 – 114</td><td>79</td></tr>
+              <tr><td>18</td><td>90 – 98</td><td>114 – 122</td><td>80</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="how-to" style="margin-top:18px">
+          <div class="how-to-title">Women's Fit Notes</div>
+          <div class="how-to-items">
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Bust:</strong> Measure around the fullest part of your bust, keeping the tape level.</span></div>
+            <div class="how-to-item"><span><strong style="color:var(--cream)">Waist:</strong> Measure at the narrowest part of your natural waist.</span></div>
+            <div class="how-to-item"><span>Our women's range is designed with an athletic fit. If unsure, order your usual UK dress size.</span></div>
+            <div class="how-to-item"><span>For badminton skirts, the waist measurement is the most important dimension to get right.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modal-body -->
+  </div><!-- /modal -->
+</div><!-- /modal-overlay -->
+
 <script>
 /* CURSOR */
-const cD=document.getElementById('cDot'),cR=document.getElementById('cRing');
+const cD=document.getElementById('cD'),cR=document.getElementById('cR');
 let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-document.querySelectorAll('a,button,.c-card,.p-card,.t-card,.pillar').forEach(el=>{
-  el.addEventListener('mouseenter',()=>cR.classList.add('hov'));
-  el.addEventListener('mouseleave',()=>cR.classList.remove('hov'));
-});
+function addHov(el){el.addEventListener('mouseenter',()=>cR.classList.add('hov'));el.addEventListener('mouseleave',()=>cR.classList.remove('hov'))}
+document.querySelectorAll('a,button,.cc,.pc,.tc,.pillar').forEach(addHov);
 (function loop(){cD.style.cssText=`left:${mx}px;top:${my}px`;rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cR.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop)})();
 
-/* NAV SCROLL */
-window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
-
-/* MOBILE NAV */
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40));
 document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));
 function cm(){document.getElementById('mob').classList.remove('open')}
 
 /* REVEAL */
-const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.07});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
+/* SIZE MODAL */
+function openModal(){
+  document.getElementById('sizeModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('sizeModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function overlayClick(e){if(e.target===document.getElementById('sizeModal'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})
+
+function szTab(btn){
+  document.querySelectorAll('.sz-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.sz-panel').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tab-'+btn.dataset.tab).classList.add('on');
+}
+
 /* PRODUCTS */
-const SVG={
-  football:`<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="52" stroke="#C9A84C" stroke-width="1.8"/><polygon points="60,18 76,50 110,50 82,70 94,105 60,84 26,105 38,70 10,50 44,50" stroke="#C9A84C" stroke-width="1.6" fill="none"/></svg>`,
-  cricket:`<svg viewBox="0 0 120 120" fill="none"><rect x="50" y="10" width="20" height="80" rx="4" stroke="#C9A84C" stroke-width="1.8"/><ellipse cx="60" cy="104" rx="34" ry="10" stroke="#C9A84C" stroke-width="1.6"/><line x1="40" y1="50" x2="80" y2="50" stroke="#C9A84C" stroke-width="1.4"/></svg>`,
-  rugby:`<svg viewBox="0 0 120 120" fill="none"><ellipse cx="60" cy="60" rx="50" ry="32" stroke="#C9A84C" stroke-width="1.8"/><line x1="10" y1="60" x2="110" y2="60" stroke="#C9A84C" stroke-width="1.4"/><line x1="60" y1="28" x2="60" y2="92" stroke="#C9A84C" stroke-width="1.4"/></svg>`,
-  badminton:`<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="32" r="20" stroke="#C9A84C" stroke-width="1.8"/><line x1="60" y1="52" x2="60" y2="112" stroke="#C9A84C" stroke-width="2.5"/><line x1="36" y1="52" x2="84" y2="52" stroke="#C9A84C" stroke-width="1.4"/><line x1="40" y1="68" x2="80" y2="68" stroke="#C9A84C" stroke-width="1.1" opacity=".5"/><line x1="44" y1="84" x2="76" y2="84" stroke="#C9A84C" stroke-width="1" opacity=".3"/></svg>`
-};
 const PRODS=[
-  {n:'Pro Match Jersey',s:'Football',p:'£39.99',t:'football'},
-  {n:'Training Shorts Elite',s:'Football',p:'£24.99',t:'football'},
-  {n:'Goalkeeper Gloves',s:'Football',p:'£32.99',t:'football'},
-  {n:'Club Tracksuit',s:'Football',p:'£64.99',t:'football'},
-  {n:'Test Cricket Whites',s:'Cricket',p:'£54.99',t:'cricket'},
-  {n:'Cricket Polo Shirt',s:'Cricket',p:'£34.99',t:'cricket'},
-  {n:'Performance Trousers',s:'Cricket',p:'£39.99',t:'cricket'},
-  {n:'Training Sweatshirt',s:'Cricket',p:'£44.99',t:'cricket'},
-  {n:'Rugby Impact Jersey',s:'Rugby',p:'£44.99',t:'rugby'},
-  {n:'Scrum Training Top',s:'Rugby',p:'£38.99',t:'rugby'},
-  {n:'Rugby Pro Shorts',s:'Rugby',p:'£29.99',t:'rugby'},
-  {n:'Training Vest',s:'Rugby',p:'£22.99',t:'rugby'},
-  {n:'Court Speed Polo',s:'Badminton',p:'£32.99',t:'badminton'},
-  {n:'Shuttle Shorts',s:'Badminton',p:'£22.99',t:'badminton'},
-  {n:'Performance Skirt',s:'Badminton',p:'£26.99',t:'badminton'},
-  {n:'Compression Court Tee',s:'Badminton',p:'£28.99',t:'badminton'},
+  {n:'Pro Match Jersey',     s:'Football', img:'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=75&fit=crop'},
+  {n:'Training Shorts',      s:'Football', img:'https://images.unsplash.com/photo-1580086319619-3ed498161c77?w=600&q=75&fit=crop'},
+  {n:'Training Jacket',      s:'Football', img:'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=75&fit=crop'},
+  {n:'Club Tracksuit',       s:'Football', img:'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=75&fit=crop'},
+  {n:'Test Cricket Whites',  s:'Cricket',  img:'https://images.unsplash.com/photo-1540747913346-19378d7e5c02?w=600&q=75&fit=crop'},
+  {n:'Cricket Polo Shirt',   s:'Cricket',  img:'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=600&q=75&fit=crop'},
+  {n:'Performance Trousers', s:'Cricket',  img:'https://images.unsplash.com/photo-1519861531473-9200262188bf?w=600&q=75&fit=crop'},
+  {n:'Training Sweatshirt',  s:'Cricket',  img:'https://images.unsplash.com/photo-1509477887414-681937645173?w=600&q=75&fit=crop'},
+  {n:'Rugby Impact Jersey',  s:'Rugby',    img:'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=75&fit=crop'},
+  {n:'Scrum Training Top',   s:'Rugby',    img:'https://images.unsplash.com/photo-1544298621-a28232b46ac5?w=600&q=75&fit=crop'},
+  {n:'Rugby Pro Shorts',     s:'Rugby',    img:'https://images.unsplash.com/photo-1464069668014-99d45f8a6d9c?w=600&q=75&fit=crop'},
+  {n:'Training Vest',        s:'Rugby',    img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=75&fit=crop'},
+  {n:'Court Speed Polo',     s:'Badminton',img:'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=75&fit=crop'},
+  {n:'Shuttle Shorts',       s:'Badminton',img:'https://images.unsplash.com/photo-1592656094267-764a45160876?w=600&q=75&fit=crop'},
+  {n:'Performance Skirt',    s:'Badminton',img:'https://images.unsplash.com/photo-1617083934551-ac1f3e74f5b4?w=600&q=75&fit=crop'},
+  {n:'Compression Court Tee',s:'Badminton',img:'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=75&fit=crop'},
 ];
 
 function renderP(filter){
   const g=document.getElementById('pGrid');
   const list=filter==='all'?PRODS:PRODS.filter(p=>p.s===filter);
   g.innerHTML=list.map((p,i)=>`
-    <div class="p-card rv d${(i%4)+1}">
-      <div class="p-img">${SVG[p.t]}<div class="p-tag">${p.s}</div></div>
-      <div class="p-body">
-        <div class="p-name">${p.n}</div>
-        <div class="p-foot">
-          <div class="p-price">${p.p}</div>
-          <button class="p-add" onclick="addC(this)">Add</button>
+    <div class="pc rv d${(i%4)+1}">
+      <div class="pimg">
+        <img src="${p.img}" alt="${p.n}" loading="lazy">
+        <div class="pbadge">${p.s}</div>
+      </div>
+      <div class="pbody">
+        <div class="pname">${p.n}</div>
+        <div class="p-actions">
+          <button class="pbtn" onclick="addC(this)">Enquire Now</button>
+          <button class="psize" onclick="openModal()">Size</button>
         </div>
       </div>
-      <div class="p-bar"></div>
+      <div class="pbar"></div>
     </div>`).join('');
-  g.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+  g.querySelectorAll('.rv').forEach(el=>{ro.observe(el);addHov(el)});
 }
 
 document.getElementById('fRow').addEventListener('click',e=>{
@@ -534,20 +827,15 @@ document.getElementById('fRow').addEventListener('click',e=>{
   document.querySelectorAll('.fb').forEach(x=>x.classList.remove('on'));
   b.classList.add('on');renderP(b.dataset.f);
 });
-
-document.querySelectorAll('.c-card').forEach(c=>{
+document.querySelectorAll('.cc').forEach(c=>{
   c.addEventListener('click',()=>{
     const f=c.dataset.f;
     document.getElementById('products').scrollIntoView({behavior:'smooth'});
-    setTimeout(()=>{
-      document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
-      renderP(f);
-    },500);
+    setTimeout(()=>{document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));renderP(f)},500);
   });
 });
-
-function addC(btn){btn.textContent='✓ Added';btn.classList.add('added');setTimeout(()=>{btn.textContent='Add';btn.classList.remove('added')},1800)}
-function fSub(btn){btn.textContent='✓ Sent — Thank You!';btn.style.background='#1f6b1f';setTimeout(()=>{btn.textContent='Send Message';btn.style.background=''},3000)}
+function addC(btn){btn.textContent='✓ Sent';btn.classList.add('added');setTimeout(()=>{btn.textContent='Enquire Now';btn.classList.remove('added')},1800)}
+function fSub(btn){btn.textContent='✓ Message Sent!';btn.style.background='#1a6b1a';setTimeout(()=>{btn.textContent='Send Message';btn.style.background=''},3000)}
 
 renderP('all');
 </script>
