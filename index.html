@@ -499,7 +499,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
       <h2 class="sttl rv">Let's <em>Talk</em><br>Sportswear</h2>
       <p class="rv">Questions about our collection, sizing, or a bulk order? We'd love to hear from you — we respond within 24 hours.</p>
       <div class="ctdets rv d1">
-        <div class="ctrow"><div class="ctico">✉</div><div><div class="ctlbl">Email</div><div class="ctval">support@glammysports.com</div></div></div>
+        <div class="ctrow"><div class="ctico">✉</div><div><div class="ctlbl">Email</div><div class="ctval">glammysports.com</div></div></div>
         <div class="ctrow"><div class="ctico">🌐</div><div><div class="ctlbl">Website</div><div class="ctval">glammysports.com</div></div></div>
         <div class="ctrow"><div class="ctico">📦</div><div><div class="ctlbl">Shipping</div><div class="ctval">Worldwide delivery available</div></div></div>
       </div>
@@ -529,7 +529,7 @@ tbody td:first-child{font-family:'Cinzel',serif;font-weight:600;color:var(--crea
     <div class="ftcol"><div class="ftct">Collection</div><ul><li><a href="#products">Football</a></li><li><a href="#products">Cricket</a></li><li><a href="#products">Rugby</a></li><li><a href="#products">Badminton</a></li></ul></div>
     <div class="ftcol"><div class="ftct">Company</div><ul><li><a href="#about">About Us</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div class="ftcol"><div class="ftct">Support</div><ul>
-      <li><a href="mailto:support@glammysports.com">Email Us</a></li>
+      <li><a href="mailto:info@glammysports.com">Email Us</a></li>
       <li><button class="sz-footer" onclick="openModal()">UK Size Guide</button></li>
       <li><a href="#contact">Returns</a></li>
       <li><a href="#contact">Delivery Info</a></li>
@@ -752,7 +752,7 @@ document.querySelectorAll('.cc').forEach(c=>{
     setTimeout(()=>{document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',b.dataset.f===f));renderP(f)},500);
   });
 });
-function addC(btn){btn.textContent='✓ Sent';btn.classList.add('added');setTimeout(()=>{btn.textContent='Enquire Now';btn.classList.remove('added')},1800)}
+function addC(btn){document.getElementById('contact').scrollIntoView({behavior:'smooth'});btn.textContent='✓ Sent';btn.classList.add('added');setTimeout(()=>{btn.textContent='Enquire Now';btn.classList.remove('added')},1800)}
 function fSub(btn){btn.textContent='✓ Message Sent!';btn.style.background='#1a6b1a';setTimeout(()=>{btn.textContent='Send Message';btn.style.background=''},3000)}
 
 renderP('all');
